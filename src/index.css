@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 body {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   background-color: #1a1a1a;
   color: #d9d9d9;
 }

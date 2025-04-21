@@ -9,6 +9,7 @@ import Certifications from './components/Certifications';
 import Experience from './components/Experience';
 import Footer from './components/Footer';
 import Blog from './pages/Blog';
+import Post from './pages/posts/Post';
 
 const Home = () => (
   <>
@@ -31,6 +32,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<Post />} />
         </Routes>
       </div>
     </Router>

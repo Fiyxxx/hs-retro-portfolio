@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import profilePic from "../assets/profile.png";
+import profilePic2 from "../assets/chopperhat.jpg";
 
 const words = [
   "software engineer",
@@ -45,23 +47,37 @@ const Hero = () => {
   }, [charIndex, isDeleting, wordIndex]);
 
   return (
-    <section className="w-full px-4 py-6 text-white">
-      <div className="flex gap-6 items-center">
-        <img src={profilePic} alt="profile" className="w-40 h-40 rounded-md" />
-        <div className="flex flex-col">
+    <motion.section
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1.2, ease: "easeOut" }}
+      className="w-full py-6"
+    >
+      <div className="max-w-screen-md mx-auto px-6 flex flex-col md:flex-row gap-10 items-center">
+        {/* Profile Picture */}
+        <div className="flex-shrink-0 flex justify-center w-full md:w-1/3">
+          <img
+            src={profilePic2}
+            alt="profile"
+            className="w-40 h-40 rounded-md object-cover"
+          />
+        </div>
+
+        {/* Name, Typewriter, Links */}
+        <div className="flex flex-col text-white text-center md:text-left w-full">
           <h1 className="text-5xl font-bold">Han Sheng</h1>
           <p className="text-base text-gray-400 tracking-wider mt-4">
             {displayedText}
             <span className="blinking-cursor ml-1">|</span>
           </p>
-          <div className="flex gap-4 mt-8 text-base">
+          <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-6 text-base">
             <a target="_blank" href="https://linkedin.com/in/goh-han-sheng" className="hover:text-violet-400">LinkedIn</a>
             <a target="_blank" href="https://github.com/Fiyxxx" className="hover:text-violet-400">GitHub</a>
             <a target="_blank" href="mailto:gohhansheng@outlook.com" className="hover:text-violet-400">Email</a>
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
