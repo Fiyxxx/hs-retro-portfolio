@@ -5,3 +5,14 @@ body {
   background-color: #1a1a1a;
   color: #d9d9d9;
 }
+
+.blinking-cursor {
+  font-weight: 100;
+  font-size: 1rem;
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
