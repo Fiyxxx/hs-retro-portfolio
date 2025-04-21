@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 const posts = [
   {
     slug: "lumi",
-    title: "elise lowkey gay",
-    description: "say real",
+    title: "my first blog :)",
+    description: "click in!",
   }
 ];
 
