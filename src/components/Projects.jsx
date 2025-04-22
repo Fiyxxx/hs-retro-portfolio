@@ -56,7 +56,7 @@ const Projects = () => {
                 >
                   {project.title}
                 </a>
-                <p className="text-sm text-gray-400">{project.description}</p>
+                <p className="text-sm text-gray-400 light:text-gray-500">{project.description}</p>
               </div>
             ))}
           </div>

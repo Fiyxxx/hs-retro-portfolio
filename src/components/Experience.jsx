@@ -35,7 +35,7 @@ const Experience = () => {
                 className="text-white light:text-black"
               >
                 <h3 className="text-base font-semibold">{job.name}</h3>
-                <p className="text-sm text-gray-400">{job.focus}</p>
+                <p className="text-sm text-gray-400 light:text-gray-500">{job.focus}</p>
               </div>
             ))}
           </div>

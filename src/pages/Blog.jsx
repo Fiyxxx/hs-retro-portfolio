@@ -26,7 +26,7 @@ const Blog = () => {
               <h3 className="text-xl font-bold text-white group-hover:text-violet-400 transition">
                 {post.title}
               </h3>
-              <p className="text-sm text-gray-400">{post.description}</p>
+              <p className="text-sm text-gray-400 light:text-gray-500">{post.description}</p>
             </Link>
           ))}
         </div>

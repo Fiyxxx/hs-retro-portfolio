@@ -12,7 +12,7 @@ const Clock = () => {
   }, []);
 
   return (
-    <div className="text-sm text-gray-400 font-mono">
+    <div className="text-sm text-gray-400 light:text-gray-500 font-mono">
       {time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}
     </div>
   );

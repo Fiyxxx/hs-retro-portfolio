@@ -44,7 +44,7 @@ const Skills = () => {
             </div>
 
             {/* Focus Areas */}
-            <div className="text-sm text-gray-400 space-y-1">
+            <div className="text-sm text-gray-400 light:text-gray-500 space-y-1">
               <p className="text-white light:text-black text-base font-semibold">Focus:</p>
               <p>ML (NLP and Cybersecurity)</p>
               <p>App Development</p>

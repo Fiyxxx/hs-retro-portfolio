@@ -40,7 +40,7 @@ const Achievements = () => {
               {achievements_comp.map((item, index) => (
                 <div key={index}>
                   <div className="text-base text-white light:text-black font-semibold">{item.name}</div>
-                  <div className="text-sm text-gray-400">{item.content}</div>
+                  <div className="text-sm text-gray-400 light:text-gray-500">{item.content}</div>
                 </div>
               ))}
           </div>

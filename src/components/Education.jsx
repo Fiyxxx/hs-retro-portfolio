@@ -49,10 +49,10 @@ const Education = () => {
                 className="text-white light:text-black "
               >
                 <h3 className="text-base font-semibold">{school.name}</h3>
-                <p className="text-sm text-gray-400">{school.years}</p>
-                <p className="text-sm text-gray-400">{school.focus}</p>
+                <p className="text-sm text-gray-400 light:text-gray-500">{school.years}</p>
+                <p className="text-sm text-gray-400 light:text-gray-500">{school.focus}</p>
                 {school.score && (
-                  <p className="text-sm text-gray-400">{school.score}</p>
+                  <p className="text-sm text-gray-400 light:text-gray-500">{school.score}</p>
                 )}
               </div>
             ))}

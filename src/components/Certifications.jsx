@@ -53,7 +53,7 @@ const Certifications = () => {
             {certifications.map((cert, index) => (
               <div key={index}>
                 <a href={cert.link} className="font-semibold underline text-white light:text-black hover:text-violet-400 transition">{cert.name}</a>
-                <div className="text-sm text-gray-400">{cert.content}</div>
+                <div className="text-sm text-gray-400 light:text-gray-500">{cert.content}</div>
               </div>
             ))}
           </div>
