@@ -45,14 +45,14 @@ const Certifications = () => {
         <div className="flex flex-col md:flex-row gap-10">
           {/* Left: Section Title */}
           <h2 className="text-3xl text-white font-bold tracking-wider w-full md:w-1/3">
-            Certifications
+            Certifications 📝
           </h2>
 
           {/* Right: Certification List */}
           <div className="flex-1 flex flex-col gap-4 pt-1">
             {certifications.map((cert, index) => (
               <div key={index}>
-                <a href={cert.link} className="font-semibold text-white hover:text-violet-400 transition">{cert.name}</a>
+                <a href={cert.link} className="font-semibold underline text-white hover:text-violet-400 transition">{cert.name}</a>
                 <div className="text-sm text-gray-400">{cert.content}</div>
               </div>
             ))}

@@ -24,7 +24,7 @@ const Experience = () => {
         <div className="flex flex-col md:flex-row gap-10">
           {/* Left: Section Title */}
           <h2 className="text-3xl text-white font-bold tracking-wider w-full md:w-1/3">
-            Experience
+            Experience 👷🏼‍♂️
           </h2>
 
           {/* Right: School Cards */}

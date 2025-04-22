@@ -27,7 +27,7 @@ const Skills = () => {
         <div className="flex flex-col md:flex-row gap-10">
           {/* Left: Section Title */}
           <h2 className="text-3xl text-white font-bold tracking-wider w-full md:w-1/3">
-            Skills
+            Skills 👾
           </h2>
 
           {/* Right: Logos + Focus */}
