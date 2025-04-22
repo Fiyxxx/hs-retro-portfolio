@@ -40,7 +40,7 @@ const Projects = () => {
         {/* Title + Content */}
         <div className="flex flex-col md:flex-row gap-10">
           {/* Left: Section Title */}
-          <h2 className="text-3xl text-white font-bold tracking-wider w-full md:w-1/3">
+          <h2 className="text-3xl text-white light:text-black font-bold tracking-wider w-full md:w-1/3">
             Projects 🔧
           </h2>
 
@@ -52,7 +52,7 @@ const Projects = () => {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white underline font-semibold hover:text-violet-400 transition"
+                  className="text-white light:text-black underline font-semibold hover:text-violet-400 transition"
                 >
                   {project.title}
                 </a>

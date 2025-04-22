@@ -64,7 +64,7 @@ const Hero = () => {
         </div>
 
         {/* Name, Typewriter, Links */}
-        <div className="flex flex-col text-white text-center md:text-left w-full">
+        <div className="flex flex-col text-white light:text-black text-center md:text-left w-full">
           <h1 className="text-5xl font-bold">Han Sheng</h1>
           <p className="text-base text-gray-400 tracking-wider mt-4">
             {displayedText}

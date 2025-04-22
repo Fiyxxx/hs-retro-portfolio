@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import Clock from "./Clock";
+import ThemeToggle from './ThemeToggle';
 
 const Header = () => {
   return (
@@ -10,12 +10,13 @@ const Header = () => {
         <div className="text-xl pr-1">🇸🇬</div><Clock />
 
         {/* RIGHT: Navigation Links */}
-        <nav className="flex gap-6 text-sm font-semibold text-gray-400 mx-auto md:w-1/3">
+        <nav className="flex gap-6 text-sm font-semibold text-gray-400 mx-auto md:w-1/4">
           <a href="/" className="hover:text-violet-400">Home</a>
           <a href="/showcase" className="hover:text-violet-400">Showcase</a>
           <a href="/blog" className="hover:text-violet-400">Blog</a>
         </nav>
-    
+
+        <ThemeToggle />
       </div>
     </header>
   )

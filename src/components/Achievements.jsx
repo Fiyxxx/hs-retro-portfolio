@@ -31,7 +31,7 @@ const Achievements = () => {
         {/* Title + Content */}
         <div className="flex flex-col md:flex-row gap-10">
           {/* Left: Section Title */}
-          <h2 className="text-3xl text-white font-bold tracking-wider w-full md:w-1/3">
+          <h2 className="text-3xl text-white light:text-black font-bold tracking-wider w-full md:w-1/3">
             Achievements 🌟
           </h2>
 
@@ -39,7 +39,7 @@ const Achievements = () => {
           <div className="flex-1 flex flex-col gap-4 pt-1">
               {achievements_comp.map((item, index) => (
                 <div key={index}>
-                  <div className="text-base text-white font-semibold">{item.name}</div>
+                  <div className="text-base text-white light:text-black font-semibold">{item.name}</div>
                   <div className="text-sm text-gray-400">{item.content}</div>
                 </div>
               ))}

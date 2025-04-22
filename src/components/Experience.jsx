@@ -23,7 +23,7 @@ const Experience = () => {
         {/* Title + Content */}
         <div className="flex flex-col md:flex-row gap-10">
           {/* Left: Section Title */}
-          <h2 className="text-3xl text-white font-bold tracking-wider w-full md:w-1/3">
+          <h2 className="text-3xl text-white light:text-black font-bold tracking-wider w-full md:w-1/3">
             Experience 👷🏼‍♂️
           </h2>
 
@@ -32,7 +32,7 @@ const Experience = () => {
             {experience.map((job, index) => (
               <div
                 key={index}
-                className="text-white"
+                className="text-white light:text-black"
               >
                 <h3 className="text-base font-semibold">{job.name}</h3>
                 <p className="text-sm text-gray-400">{job.focus}</p>

@@ -26,14 +26,14 @@ const Skills = () => {
         {/* Title + Content */}
         <div className="flex flex-col md:flex-row gap-10">
           {/* Left: Section Title */}
-          <h2 className="text-3xl text-white font-bold tracking-wider w-full md:w-1/3">
+          <h2 className="text-3xl text-white light:text-black font-bold tracking-wider w-full md:w-1/3">
             Skills 👾
           </h2>
 
           {/* Right: Logos + Focus */}
           <div className="flex-1 flex flex-col gap-6 pt-1">
             {/* Tech Logos */}
-            <div className="flex flex-wrap gap-4 text-2xl text-white">
+            <div className="flex flex-wrap gap-4 text-2xl text-white light:text-black">
               <SiPython className="hover:text-violet-400 transition" />
               <SiCplusplus className="hover:text-violet-400 transition" />
               <SiJavascript className="hover:text-violet-400 transition" />
@@ -45,7 +45,7 @@ const Skills = () => {
 
             {/* Focus Areas */}
             <div className="text-sm text-gray-400 space-y-1">
-              <p className="text-white text-base font-semibold">Focus:</p>
+              <p className="text-white light:text-black text-base font-semibold">Focus:</p>
               <p>ML (NLP and Cybersecurity)</p>
               <p>App Development</p>
               <p>Game Development</p>
