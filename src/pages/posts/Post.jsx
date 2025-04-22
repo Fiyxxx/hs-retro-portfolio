@@ -9,7 +9,7 @@ const Post = () => {
   if (!content) return <div className="text-white p-6">404: Post not found</div>;
 
   return (
-    <div className="max-w-screen-md mx-auto px-6 py-10 text-white prose prose-invert">
+    <div className="max-w-none mx-auto px-6 py-10 text-white prose prose-invert">
       <ReactMarkdown>{content}</ReactMarkdown>
     </div>
   );
