@@ -28,8 +28,22 @@ const Home = () => (
 const App = () => {
   return (
     <Router>
+      {/* Background Video */}
+      <div className="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden">
+        <video
+          className="w-full h-full object-cover opacity-20"
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          <source src="/assets/bg-video.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      {/* Foreground Content */}
       <Header />
-      <div className="max-w-screen-md mx-auto px-6">
+      <div className="max-w-screen-md mx-auto px-6 relative z-10">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/blog" element={<Blog />} />
