@@ -1,17 +1,20 @@
 import { motion } from "framer-motion";
 
-const achievements_comp = [
+const achievements = [
   {
     name: "CSIT Computing Scholarship",
-    content: "Awarded to selected JC students showing academic excellence and Computing passions"
+    content: "Awarded to selected JC students showing academic excellence and Computing passions",
+    link: "https://www.facebook.com/watch/?v=1716844012139416"
   },
   {
     name:"WorldQuant National Qualifier",
-    content:"Building alphas and competing with international contenders"
+    content:"Building alphas and competing with international contenders",
+    link: "https://www.worldquant.com/brain/"
   },
   {
     name:"TJC Talent Development Programme",
-    content:"School flagship programme for academically-inclined student leaders"
+    content:"School flagship programme for academically-inclined student leaders",
+    link: "https://www.temasekjc.moe.edu.sg/temasek-experience/student-leadership-development/"
   }
 ];
 
@@ -37,9 +40,16 @@ const Achievements = () => {
 
           {/* Right: List */}
           <div className="flex-1 flex flex-col gap-4 pt-1">
-              {achievements_comp.map((item, index) => (
+              {achievements.map((item, index) => (
                 <div key={index}>
-                  <div className="text-base text-white light:text-black font-semibold">{item.name}</div>
+                  <a
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white light:text-black underline font-semibold hover:text-violet-400 transition"
+                >
+                  {item.name}
+                </a>
                   <div className="text-sm text-gray-400 light:text-gray-500">{item.content}</div>
                 </div>
               ))}

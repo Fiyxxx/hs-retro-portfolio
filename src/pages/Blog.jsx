@@ -3,10 +3,15 @@ import { motion } from "framer-motion";
 
 const posts = [
   {
+    slug: "philosophy",
+    title: "why i code/build",
+    description: "23/5/25",
+  },
+  {
     slug: "lumi",
     title: "10 reasons why i can't die yet",
     description: "27/4/25",
-  }
+  },
 ];
 
 const Blog = () => {

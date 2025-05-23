@@ -4,27 +4,27 @@ const certifications = [
   {
     name: "Harvard's CS50X",
     content: "Introduction to Computer Science",
-    link: "#"
+    link: "https://cs50.harvard.edu/x/2025/"
   },
   {
     name: "Harvard's CS50P",
     content: "Introduction to Programming with Python",
-    link: "#"
+    link: "https://cs50.harvard.edu/python/2022/"
   },
   {
     name: "Stanford's Machine Learning Specialisation",
     content: "Fundamental Mathematical and AI concepts with NumPy, TensorFlow",
-    link: "#"
+    link: "https://www.coursera.org/specializations/machine-learning-introduction"
   },
   {
     name: "The Odin Project's Foundation Course",
     content: "Fundamental Web Development with HTML, CSS, JavaScript",
-    link: "#"
+    link: "https://www.theodinproject.com/paths/foundations/courses/foundations"
   },
   {
     name: "UPenn's Fundamentals of Quantitative Modelling",
     content: "Fundamental Mathematical and Modelling concepts for Quantitative Research",
-    link: "#"
+    link: "https://www.coursera.org/learn/wharton-quantitative-modeling"
   }
 ]
 
@@ -52,7 +52,7 @@ const Certifications = () => {
           <div className="flex-1 flex flex-col gap-4 pt-1">
             {certifications.map((cert, index) => (
               <div key={index}>
-                <a href={cert.link} className="font-semibold underline text-white light:text-black hover:text-violet-400 transition">{cert.name}</a>
+                <a href={cert.link} target="_blank" className="font-semibold underline text-white light:text-black hover:text-violet-400 transition">{cert.name}</a>
                 <div className="text-sm text-gray-400 light:text-gray-500">{cert.content}</div>
               </div>
             ))}

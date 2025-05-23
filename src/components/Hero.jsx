@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import profilePic from "../assets/profile.png";
-import profilePic2 from "../assets/chopperhat.jpg";
+import profilePic from "../assets/profile2.jpg";
 
 const words = [
   "software engineer",
@@ -57,7 +56,7 @@ const Hero = () => {
         {/* Profile Picture */}
         <div className="flex-shrink-0 flex justify-center w-full md:w-1/3">
           <img
-            src={profilePic2}
+            src={profilePic}
             alt="profile"
             className="w-40 h-40 rounded-md object-cover"
           />

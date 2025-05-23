@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const projects = [
   {
     title: "Lumi",
-    link: "https://lumi-app-theta.vercel.app",
+    link: "#",
     description: "Flashcard mobile app with LLM integration to help students learn faster"
   },
   {
@@ -48,7 +48,8 @@ const Projects = () => {
           <div className="flex-1 flex flex-col gap-4 pt-1">
             {projects.map((project, index) => (
               <div key={index}>
-                <a
+              {/*
+              <a
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -56,6 +57,8 @@ const Projects = () => {
                 >
                   {project.title}
                 </a>
+                */}
+                <div className="text-base text-white light:text-black font-semibold">{project.title}</div>
                 <p className="text-sm text-gray-400 light:text-gray-500">{project.description}</p>
               </div>
             ))}
