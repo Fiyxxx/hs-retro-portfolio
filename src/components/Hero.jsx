@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import profilePic from "../assets/profile2.JPG";
+import profilePic from "../assets/chopperhat.jpg";
 
 const words = [
   "software engineer",
