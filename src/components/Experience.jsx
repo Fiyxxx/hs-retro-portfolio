@@ -2,8 +2,9 @@ import { motion } from "framer-motion";
 
 const experience = [
   {
-    name: "SemperStroke - Principal VR Programmer",
-    focus: "Building VR/XR games with Unity, C#"
+    name: "Software Engineer Intern",
+    company: "Ecovolt Technologies Pte Ltd",
+    focus: "Full-stack development, special projects, operations"
   }
 ];
 
@@ -35,6 +36,7 @@ const Experience = () => {
                 className="text-white light:text-black"
               >
                 <h3 className="text-base font-semibold">{job.name}</h3>
+                <p className="text-sm text-gray-400 light:text-gray-500 underline">{job.company}</p>
                 <p className="text-sm text-gray-400 light:text-gray-500">{job.focus}</p>
               </div>
             ))}
