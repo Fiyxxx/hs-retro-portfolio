@@ -7,9 +7,9 @@ const Header = () => {
     <header className="w-full py-4 border-b border-gray-700">
       <div className="max-w-screen-md mx-auto px-6 flex items-center">
 
-        {/* LEFT: Emoji + Clock */}
-        <div className="flex items-center gap-1 text-xl pr-4">
-          🇸🇬 <Clock />
+        {/* LEFT: Clock */}
+        <div className="flex items-center text-xl pr-4">
+          <Clock />
         </div>
 
         {/* CENTER: Navigation */}
