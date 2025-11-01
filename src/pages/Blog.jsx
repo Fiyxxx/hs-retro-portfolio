@@ -23,12 +23,12 @@ const Blog = () => {
       transition={{ duration: 1.2, ease: "easeOut" }}
     >
       <div className="max-w-screen-md mx-auto px-6 flex flex-col gap-6">
-        <h2 className="text-3xl text-white font-bold tracking-wider">My Thoughts</h2>
+        <h2 className="text-3xl text-white light:text-black font-bold tracking-wider">My Thoughts</h2>
 
         <div className="flex flex-col gap-6">
           {posts.map((post) => (
             <Link key={post.slug} to={`/blog/${post.slug}`} className="group">
-              <h3 className="text-xl font-bold text-white group-hover:text-violet-400 transition">
+              <h3 className="text-xl font-bold text-white light:text-black group-hover:text-violet-400 transition">
                 {post.title}
               </h3>
               <p className="text-sm text-gray-400 light:text-gray-500">{post.description}</p>

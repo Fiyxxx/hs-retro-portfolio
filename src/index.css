@@ -7,6 +7,11 @@ body {
   color: #d9d9d9;
 }
 
+.light body {
+  background-color: #ffffba;
+  color: #000000;
+}
+
 .blinking-cursor {
   font-weight: 100;
   font-size: 1rem;

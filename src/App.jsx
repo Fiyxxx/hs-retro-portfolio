@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Analytics } from '@vercel/analytics/react';
+import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Skills from './components/Skills';
@@ -12,6 +13,7 @@ import Footer from './components/Footer';
 import Blog from './pages/Blog';
 import Post from './pages/posts/Post';
 import Showcase from './pages/Showcase';
+import { LiquidChrome } from './blocks/Backgrounds/LiquidChrome/LiquidChrome';
 
 const Home = () => (
   <>
@@ -27,19 +29,51 @@ const Home = () => (
 );
 
 const App = () => {
+  const [theme, setTheme] = useState('dark');
+
+  useEffect(() => {
+    const checkTheme = () => {
+      const isLight = document.documentElement.classList.contains('light');
+      setTheme(isLight ? 'light' : 'dark');
+    };
+
+    checkTheme();
+    
+    const observer = new MutationObserver(checkTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const getBackgroundColors = () => {
+    if (theme === 'light') {
+      return {
+        baseColor: [0.8, 0.7, 0.3], // Light yellowish colors
+        opacity: 0.2
+      };
+    }
+    return {
+      baseColor: [0.15, 0.05, 0.2], // Dark purple colors
+      opacity: 0.3
+    };
+  };
+
+  const { baseColor, opacity } = getBackgroundColors();
+
   return (
     <Router>
-      {/* Background Video */}
-      <div className="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden">
-        <video
-          className="w-full h-full object-cover opacity-20"
-          autoPlay
-          loop
-          muted
-          playsInline
-        >
-          <source src="/assets/bg-video.mp4" type="video/mp4" />
-        </video>
+      {/* Liquid Chrome Background */}
+      <div className="fixed top-0 left-0 w-full h-full -z-10">
+        <LiquidChrome 
+          baseColor={baseColor} 
+          speed={0.3} 
+          amplitude={0.3}
+          interactive={true}
+          style={{ opacity }}
+        />
       </div>
 
       {/* Foreground Content */}
