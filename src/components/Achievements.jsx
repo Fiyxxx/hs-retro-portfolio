@@ -2,6 +2,11 @@ import { motion } from "framer-motion";
 
 const achievements = [
   {
+    name: "Cactus x Google DeepMind Hackathon - 2nd place",
+    content: "Built SecureClaw, a privacy-first OpenClaw layer, won $5000 in Gemini credits",
+    link: "#"
+  },
+  {
     name: "CSIT Computing Scholarship",
     content: "Awarded to selected JC students showing academic excellence and Computing passions",
     link: "https://www.facebook.com/watch/?v=1716844012139416"

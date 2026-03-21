@@ -1,15 +1,23 @@
 @import "tailwindcss";
 @custom-variant light (&:where(.light, .light *));
 
+html, body {
+  min-height: 100%;
+}
+
 body {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   background-color: #1a1a1a;
   color: #d9d9d9;
 }
 
-.light body {
+html.light body {
   background-color: #ffffba;
   color: #000000;
+}
+
+html.light {
+  background-color: #ffffba;
 }
 
 .blinking-cursor {

@@ -2,6 +2,16 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
+    title: "SGUniGPA.com",
+    link: "https://sgunigpa.com",
+    description: "SEO-optimised Easy-to-use and smooth GPA Calculator for NUS/NTU/SMU"
+  },
+  {
+    title: "JustPromptBro IDE",
+    link: "#",
+    description: "Vibe-coding IDE with Solana blockchain & smart contracts integration and restricts users from manual coding"
+  },
+  {
     title: "Lumi",
     link: "#",
     description: "Flashcard mobile app with LLM integration to help students learn faster"
@@ -48,17 +58,18 @@ const Projects = () => {
           <div className="flex-1 flex flex-col gap-4 pt-1">
             {projects.map((project, index) => (
               <div key={index}>
-              {/*
-              <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white light:text-black underline font-semibold hover:text-violet-400 transition"
-                >
-                  {project.title}
-                </a>
-                */}
-                <div className="text-base text-white light:text-black font-semibold">{project.title}</div>
+                {project.link && project.link !== "#" ? (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white light:text-black underline font-semibold hover:text-violet-400 transition"
+                  >
+                    {project.title}
+                  </a>
+                ) : (
+                  <div className="text-base text-white light:text-black font-semibold">{project.title}</div>
+                )}
                 <p className="text-sm text-gray-400 light:text-gray-500">{project.description}</p>
               </div>
             ))}

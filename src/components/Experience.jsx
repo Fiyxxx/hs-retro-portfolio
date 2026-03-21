@@ -5,6 +5,11 @@ const experience = [
     name: "Software Engineer Intern",
     company: "Ecovolt Technologies Pte Ltd",
     focus: "Full-stack development, special projects, operations"
+  },
+  {
+    name: "Frontend Developer",
+    company: "National University of Singapore",
+    focus: "Building content hub for Health & Wellbeing Team"
   }
 ];
 
