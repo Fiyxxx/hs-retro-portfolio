@@ -4,7 +4,7 @@ const achievements = [
   {
     name: "Cactus x Google DeepMind Hackathon - 2nd place",
     content: "Built SecureClaw, a privacy-first OpenClaw layer, won $5000 in Gemini credits",
-    link: "#"
+    link: "https://www.linkedin.com/feed/update/urn:li:activity:7433763987210784768/"
   },
   {
     name: "CSIT Computing Scholarship",
