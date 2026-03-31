@@ -2,6 +2,16 @@ import { motion } from "framer-motion";
 
 const achievements = [
   {
+    name: "CCSGP Public Service Fellowship",
+    content: "Obtained funding to build AssessMate, an AI Case Notes Copilot for Early Childhood Interventionist Assessors",
+    link: "#"
+  },
+  {
+    name: "NUS Student Life Hackathon - 2nd place",
+    content: "Built SortingHat AI, smarter & seamless student room allocation for RCs, won prizes worth $600",
+    link: "#"
+  },
+  {
     name: "Cactus x Google DeepMind Hackathon - 2nd place",
     content: "Built SecureClaw, a privacy-first OpenClaw layer, won $5000 in Gemini credits",
     link: "https://www.linkedin.com/feed/update/urn:li:activity:7433763987210784768/"

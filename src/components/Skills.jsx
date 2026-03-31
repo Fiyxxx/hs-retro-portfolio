@@ -48,7 +48,7 @@ const Skills = () => {
               <p className="text-white light:text-black text-base font-semibold">Focus:</p>
               <p>Software for IoT</p>
               <p>AI Agents</p>
-              <p>App Development</p>
+              <p>Cybersecurity</p>
             </div>
           </div>
         </div>

@@ -3,6 +3,11 @@ import { motion } from "framer-motion";
 
 const posts = [
   {
+    slug: "startup-takeaways",
+    title: "my takeaways 8 months deep in a startup",
+    description: "30/4/26",
+  },
+  {
     slug: "philosophy",
     title: "why i code/build",
     description: "23/5/25",

@@ -34,7 +34,6 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/blog" element={<Blog />} />
-          <Route path="/showcase" element={<Showcase />} />
           <Route path="/blog/:slug" element={<Post />} />
         </Routes>
       </div>

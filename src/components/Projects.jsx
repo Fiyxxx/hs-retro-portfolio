@@ -2,6 +2,11 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
+    title: "AssessMate",
+    link: "#",
+    description: "AI Case Notes Copilot for Early Childhood Interventionist Assessors"
+  },
+  {
     title: "SGUniGPA.com",
     link: "https://sgunigpa.com",
     description: "SEO-optimised Easy-to-use and smooth GPA Calculator for NUS/NTU/SMU"

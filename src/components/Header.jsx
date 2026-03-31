@@ -15,7 +15,6 @@ const Header = () => {
         {/* CENTER: Navigation */}
         <nav className="flex gap-6 text-sm font-semibold text-gray-400 light:text-gray-500 mx-auto md:w-1/4">
           <Link to="/" className="hover:text-violet-400">Home</Link>
-          <Link to="/showcase" className="hover:text-violet-400">Showcase</Link>
           <Link to="/blog" className="hover:text-violet-400">Blog</Link>
         </nav>
 
