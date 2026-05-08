@@ -2,13 +2,21 @@ import { motion } from "framer-motion";
 
 const experience = [
   {
+    name: "Cybersecurity Engineer Intern",
+    company: "Centre for Strategic Infocomm Technologies (CSIT)",
+    dateRange: "May 2026 - Current",
+    focus: "Vulnerability analysis"
+  },
+  {
     name: "Software Engineer Intern",
     company: "Ecovolt Technologies Pte Ltd",
+    dateRange: "Sep 2025 - Current",
     focus: "Full-stack development, special projects, operations"
   },
   {
     name: "Frontend Developer",
     company: "National University of Singapore",
+    dateRange: "Mar 2026 - Current",
     focus: "Building content hub for Health & Wellbeing Team"
   }
 ];
@@ -42,6 +50,7 @@ const Experience = () => {
               >
                 <h3 className="text-base font-semibold">{job.name}</h3>
                 <p className="text-sm text-gray-400 light:text-gray-500 underline">{job.company}</p>
+                <p className="text-sm text-gray-400 light:text-gray-500">{job.dateRange}</p>
                 <p className="text-sm text-gray-400 light:text-gray-500">{job.focus}</p>
               </div>
             ))}

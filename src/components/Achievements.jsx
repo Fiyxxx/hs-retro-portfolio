@@ -4,7 +4,12 @@ const achievements = [
   {
     name: "CCSGP Public Service Fellowship",
     content: "Obtained funding to build AssessMate, an AI Case Notes Copilot for Early Childhood Interventionist Assessors",
-    link: "#"
+    link: "https://www.ccsgp.comp.nus.edu.sg/fellowship-programme"
+  },
+  {
+    name: "Replit Hackathon - 1st place",
+    content: "Built Remember, an AR smart glasses emulator with human memory layer for patients with dementia",
+    link: "https://www.linkedin.com/feed/update/urn:li:activity:7456726410288881664/"
   },
   {
     name: "NUS Student Life Hackathon - 2nd place",
