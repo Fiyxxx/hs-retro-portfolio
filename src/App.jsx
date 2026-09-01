@@ -2,21 +2,18 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Analytics } from '@vercel/analytics/react';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Achievements from './components/Achievements';
 import Education from './components/Education';
 import Certifications from './components/Certifications';
 import Experience from './components/Experience';
 import Footer from './components/Footer';
-import Blog from './pages/Blog';
+import Writing from './pages/Writing';
 import Post from './pages/posts/Post';
-import Showcase from './pages/Showcase';
 
 const Home = () => (
   <>
     <Hero />
-    <Skills />
     <Experience />
     <Achievements />
     <Projects />
@@ -30,13 +27,15 @@ const App = () => {
   return (
     <Router>
       <Header />
-      <div className="max-w-screen-md mx-auto px-6 relative z-10">
+      <main className="mx-auto w-full max-w-[640px] px-5 sm:px-6">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/blog" element={<Blog />} />
+          <Route path="/writing" element={<Writing />} />
+          <Route path="/writing/:slug" element={<Post />} />
+          <Route path="/blog" element={<Writing />} />
           <Route path="/blog/:slug" element={<Post />} />
         </Routes>
-      </div>
+      </main>
       <Analytics />
     </Router>
   );

@@ -1,82 +1,77 @@
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import profilePic from "../assets/chopperhat.jpg";
+import profilePic from "../assets/avatar-cutout.png";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { FiFileText, FiMail } from "react-icons/fi";
+import DitheredPortrait from "./DitheredPortrait";
 
-const words = [
-  "software engineer",
-  "building tech for social good",
-  "cs student",
-  "coding rn",
+const links = [
+  { label: "LinkedIn", href: "https://linkedin.com/in/goh-han-sheng", icon: FaLinkedinIn },
+  { label: "GitHub", href: "https://github.com/Fiyxxx", icon: FaGithub },
+  { label: "Email", href: "mailto:gohhansheng@outlook.com", icon: FiMail },
+  { label: "Resume", href: "/resume.pdf", download: true, icon: FiFileText },
 ];
 
 const Hero = () => {
-  const [displayedText, setDisplayedText] = useState("");
-  const [wordIndex, setWordIndex] = useState(0);
-  const [charIndex, setCharIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
-
-  useEffect(() => {
-    const currentWord = words[wordIndex];
-    let timeout;
-
-    if (!isDeleting) {
-      if (charIndex < currentWord.length) {
-        timeout = setTimeout(() => {
-          setDisplayedText(currentWord.substring(0, charIndex + 1));
-          setCharIndex(charIndex + 1);
-        }, 60);
-      } else {
-        timeout = setTimeout(() => setIsDeleting(true), 1500);
-      }
-    } else {
-      if (charIndex > 0) {
-        timeout = setTimeout(() => {
-          setDisplayedText(currentWord.substring(0, charIndex - 1));
-          setCharIndex(charIndex - 1);
-        }, 30);
-      } else {
-        timeout = setTimeout(() => {
-          setIsDeleting(false);
-          setWordIndex((wordIndex + 1) % words.length);
-        }, 300);
-      }
-    }
-
-    return () => clearTimeout(timeout);
-  }, [charIndex, isDeleting, wordIndex]);
-
   return (
-    <motion.section
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1.2, ease: "easeOut" }}
-      className="w-full py-6"
-    >
-      <div className="max-w-screen-md mx-auto px-6 flex flex-col md:flex-row gap-10 items-center">
-        {/* Profile Picture */}
-        <div className="flex-shrink-0 flex justify-center w-full md:w-1/3">
-          <img
-            src={profilePic}
-            alt="profile"
-            className="w-40 h-40 rounded-md object-cover"
-          />
-        </div>
-
-        {/* Name, Typewriter, Links */}
-        <div className="flex flex-col text-white light:text-black text-center md:text-left w-full">
-          <h1 className="text-5xl font-bold">Han Sheng</h1>
-          <p className="text-base text-gray-400 light:text-gray-500 tracking-wider mt-4">
-            {displayedText}
-            <span className="blinking-cursor ml-1">|</span>
+    <section className="grid w-full grid-cols-[minmax(0,1fr)_8.25rem] items-start gap-6 py-10 sm:grid-cols-[minmax(0,1fr)_11.5rem] sm:gap-2 sm:py-12">
+        <div className="flex min-w-0 flex-col items-start text-left">
+          <h1 className="flex flex-wrap items-baseline gap-x-2 text-[30px] font-semibold leading-none tracking-[-0.025em] text-(--ink)">
+            Han Sheng
+            <span className="text-[15px] font-normal tracking-normal text-(--muted)">(Hans)</span>
+          </h1>
+          <p className="mt-4 text-[14px] leading-[1.65] text-(--muted)">
+            <strong className="font-semibold text-(--accent)">hi, i&apos;m han sheng/hans.</strong>{" "}
+            currently super interested in{" "}
+            <strong className="font-semibold text-(--accent)">
+              browser agents, harnesses, cybersecurity
+            </strong>{" "}
+            and how i can build a better world with ai. i study computing in national university
+            of singapore (nus), but more than that, i love{" "}
+            <strong className="font-semibold text-(--accent)">entrepreneurship</strong> and{" "}
+            <strong className="font-semibold text-(--accent)">bartending</strong>. looking for tech
+            roles in silicon valley rn (for jan 27 onwards), reach out to me for a chat or if you
+            need a bartender ;)
           </p>
-          <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-6 text-base">
-            <a target="_blank" href="https://linkedin.com/in/goh-han-sheng" className="hover:text-violet-400">LinkedIn</a>
-            <a target="_blank" href="https://github.com/Fiyxxx" className="hover:text-violet-400">GitHub</a>
-            <a target="_blank" href="mailto:gohhansheng@outlook.com" className="hover:text-violet-400">Email</a>
+          <div className="mt-5 flex items-center gap-4">
+            {links.map(({ icon: Icon, ...link }) => (
+              <a
+                key={link.label}
+                target={link.download ? undefined : "_blank"}
+                rel={link.download ? undefined : "noopener noreferrer"}
+                download={link.download}
+                href={link.href}
+                aria-label={link.label}
+                title={link.label}
+                className={`text-(--muted) transition-colors hover:text-(--ink) ${
+                  link.download ? "relative" : ""
+                }`}
+              >
+                <Icon size={17} />
+                {link.download && (
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 112 48"
+                    className="resume-callout pointer-events-none absolute left-[calc(100%-5px)] top-[-2px] hidden w-28 overflow-visible text-(--muted) sm:block"
+                  >
+                    <path
+                      d="M29 31C20 30 14 25 8 18M8 18l3 8M8 18l8 1"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.4"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <text x="34" y="37" fill="currentColor">
+                      my résumé
+                    </text>
+                  </svg>
+                )}
+              </a>
+            ))}
           </div>
         </div>
-      </div>
-    </motion.section>
+
+        <DitheredPortrait src={profilePic} alt="Illustrated portrait of Han Sheng" />
+    </section>
   );
 };
 

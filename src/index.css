@@ -1,32 +1,128 @@
 @import "tailwindcss";
 @custom-variant light (&:where(.light, .light *));
 
+:root {
+  --paper: #0a1020;
+  --ink: #eef2fa;
+  --muted: #98a4ba;
+  --rule: #202a40;
+  --accent: #ff8a5b;
+  --accent-soft: #ffad8c;
+}
+
+html.light {
+  --paper: #f4f0e6;
+  --ink: #171a24;
+  --muted: #62656f;
+  --rule: #d8d1c3;
+  --accent: #3159d9;
+  --accent-soft: #5b79e5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 html, body {
   min-height: 100%;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  background-color: #1a1a1a;
-  color: #d9d9d9;
+  margin: 0;
+  font-family: "Figtree Variable", Figtree, ui-sans-serif, system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  background-color: var(--paper);
+  color: var(--ink);
+  letter-spacing: -0.005em;
 }
 
-html.light body {
-  background-color: #ffffba;
-  color: #000000;
+html.theme-transitioning *,
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
+  transition: none !important;
 }
 
-html.light {
-  background-color: #ffffba;
+::selection {
+  background: var(--accent);
+  color: #fff;
 }
 
-.blinking-cursor {
-  font-weight: 100;
-  font-size: 1rem;
-  animation: blink 0.8s infinite;
+.dithered-portrait {
+  width: 100%;
+  max-width: 184px;
+  aspect-ratio: 1;
+  justify-self: end;
+  cursor: crosshair;
+  user-select: none;
+  touch-action: manipulation;
 }
 
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+.dithered-portrait canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 240ms ease;
+}
+
+.dithered-portrait canvas[data-ready] {
+  opacity: 1;
+}
+
+.resume-callout text {
+  font-family: "Caveat Variable", "Bradley Hand", cursive;
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.polaroid-caption {
+  font-family: "Caveat Variable", "Bradley Hand", cursive;
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.theme-ripple {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  overflow: hidden;
+  pointer-events: none;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+.theme-ripple[data-ripple-theme="dark"] {
+  --paper: #0a1020;
+  --ink: #eef2fa;
+  --muted: #98a4ba;
+  --rule: #202a40;
+  --accent: #ff8a5b;
+  --accent-soft: #ffad8c;
+}
+
+.theme-ripple[data-ripple-theme="light"] {
+  --paper: #f4f0e6;
+  --ink: #171a24;
+  --muted: #62656f;
+  --rule: #d8d1c3;
+  --accent: #3159d9;
+  --accent-soft: #5b79e5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
