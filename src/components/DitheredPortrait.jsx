@@ -37,7 +37,7 @@ const DitheredPortrait = ({ src, alt }) => {
         const darkness = 1 - luminance;
         const tone =
           targetTheme === "dark"
-            ? 0.12 + Math.pow(darkness, 0.8) * 0.72
+            ? 0.06 + Math.pow(luminance, 0.82) * 0.9
             : Math.pow(darkness, 0.65) * 1.32;
         targetCtx.globalAlpha = Math.min(1, points.alpha[index] * tone);
         targetCtx.fillRect(

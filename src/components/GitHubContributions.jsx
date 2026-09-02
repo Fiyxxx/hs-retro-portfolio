@@ -12,6 +12,7 @@ const EMPTY_DAYS = Array.from({ length: 371 }, (_, index) => ({
   level: 0,
   key: `empty-${index}`,
 }));
+const revealDelay = (index) => ((index * 73) % 371) * 1.1;
 
 const GitHubContributions = () => {
   const [activity, setActivity] = useState({ contributions: EMPTY_DAYS, total: null });
@@ -58,7 +59,8 @@ const GitHubContributions = () => {
             "— this year"
           ) : (
             <>
-              <strong className="font-semibold text-[#4774d5]">{activity.total}</strong> this year
+              <strong className="font-semibold text-(--github-level-4)">{activity.total}</strong>{" "}
+              this year
             </>
           )}
         </span>
@@ -73,7 +75,8 @@ const GitHubContributions = () => {
           {activity.contributions.map((day, index) => (
             <span
               key={day.date || day.key || index}
-              className={`github-contribution-level-${day.level}`}
+              className={`${activity.total === null ? "opacity-0" : "github-contribution-cell"} github-contribution-level-${day.level}`}
+              style={{ "--reveal-delay": `${revealDelay(index)}ms` }}
               title={day.date ? `${day.count} contribution${day.count === 1 ? "" : "s"} on ${day.date}` : undefined}
               onMouseEnter={() => day.date && setHoveredDay(day)}
             />
