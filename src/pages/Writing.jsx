@@ -6,16 +6,6 @@ const posts = [
     title: "my takeaways 8 months deep in a startup",
     description: "30/4/26",
   },
-  {
-    slug: "philosophy",
-    title: "why i code/build",
-    description: "23/5/25",
-  },
-  {
-    slug: "lumi",
-    title: "10 reasons why i can't die yet",
-    description: "27/4/25",
-  },
 ];
 
 const Writing = () => {

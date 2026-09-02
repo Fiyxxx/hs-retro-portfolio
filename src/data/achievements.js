@@ -1,6 +1,8 @@
 import replitPhoto from "../assets/achievements/replit-hackathon.png";
 import cactusPhoto from "../assets/achievements/cactus-deepmind.png";
 import aiSingaporePhoto from "../assets/achievements/ai-singapore.png";
+import studentLifePhoto from "../assets/achievements/student-life-hackathon.jpg";
+import ccsgpPhoto from "../assets/achievements/ccsgp-fellowship.jpg";
 
 export const achievements = [
   {
@@ -25,6 +27,7 @@ export const achievements = [
     link: "#",
     place: "2nd place",
     caption: "NUS Student Life, 2026",
+    image: studentLifePhoto,
   },
   {
     name: "CCSGP Public Service Fellowship Awardee",
@@ -32,6 +35,8 @@ export const achievements = [
     link: "https://www.ccsgp.comp.nus.edu.sg/fellowship-programme",
     place: null,
     caption: "CCSGP Fellowship",
+    image: ccsgpPhoto,
+    polaroid: "portrait",
   },
   {
     name: "AI Engineer Singapore Student Scholarship",

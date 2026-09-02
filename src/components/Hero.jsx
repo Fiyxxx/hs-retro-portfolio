@@ -2,6 +2,7 @@ import profilePic from "../assets/avatar-cutout.png";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { FiFileText, FiMail } from "react-icons/fi";
 import DitheredPortrait from "./DitheredPortrait";
+import GitHubContributions from "./GitHubContributions";
 
 const links = [
   { label: "LinkedIn", href: "https://linkedin.com/in/goh-han-sheng", icon: FaLinkedinIn },
@@ -12,7 +13,7 @@ const links = [
 
 const Hero = () => {
   return (
-    <section className="grid w-full grid-cols-[minmax(0,1fr)_8.25rem] items-start gap-6 py-10 sm:grid-cols-[minmax(0,1fr)_11.5rem] sm:gap-2 sm:py-12">
+    <section className="grid w-full grid-cols-[minmax(0,1fr)_8.25rem] items-start gap-6 pt-10 pb-2.5 sm:grid-cols-[minmax(0,1fr)_11.5rem] sm:gap-2 sm:pt-12 sm:pb-3.5">
         <div className="flex min-w-0 flex-col items-start text-left">
           <h1 className="flex flex-wrap items-baseline gap-x-2 text-[30px] font-semibold leading-none tracking-[-0.025em] text-(--ink)">
             Han Sheng
@@ -27,11 +28,12 @@ const Hero = () => {
             and how i can build a better world with ai. i study computing in national university
             of singapore (nus), but more than that, i love{" "}
             <strong className="font-semibold text-(--accent)">entrepreneurship</strong> and{" "}
-            <strong className="font-semibold text-(--accent)">bartending</strong>. looking for tech
-            roles in silicon valley rn (for jan 27 onwards), reach out to me for a chat or if you
-            need a bartender ;)
+            <strong className="font-semibold text-(--accent)">bartending</strong>. looking for{" "}
+            <strong className="font-semibold text-(--accent)">tech roles</strong> in{" "}
+            <strong className="font-semibold text-(--accent)">silicon valley</strong> rn (for jan 27
+            onwards), reach out to me for a chat or if you need a bartender ;)
           </p>
-          <div className="mt-5 flex items-center gap-4">
+          <div className="mt-5 flex flex-col items-start gap-3">
             {links.map(({ icon: Icon, ...link }) => (
               <a
                 key={link.label}
@@ -50,17 +52,17 @@ const Hero = () => {
                   <svg
                     aria-hidden="true"
                     viewBox="0 0 112 48"
-                    className="resume-callout pointer-events-none absolute left-[calc(100%-5px)] top-[-2px] hidden w-28 overflow-visible text-(--muted) sm:block"
+                    className="resume-callout pointer-events-none absolute right-[calc(100%-5px)] top-[-10px] hidden w-28 overflow-visible text-(--muted) min-[840px]:block"
                   >
                     <path
-                      d="M29 31C20 30 14 25 8 18M8 18l3 8M8 18l8 1"
+                      d="M72 31C82 30 92 25 104 18M104 18l-8 1M104 18l-3 8"
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="1.4"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                     />
-                    <text x="34" y="37" fill="currentColor">
+                    <text x="2" y="37" fill="currentColor">
                       my résumé
                     </text>
                   </svg>
@@ -70,7 +72,29 @@ const Hero = () => {
           </div>
         </div>
 
-        <DitheredPortrait src={profilePic} alt="Illustrated portrait of Han Sheng" />
+        <div className="flex min-w-0 flex-col items-end">
+          <div className="relative w-full max-w-[184px]">
+            <DitheredPortrait src={profilePic} alt="Illustrated portrait of Han Sheng" />
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 112 56"
+              className="portrait-callout pointer-events-none absolute left-[calc(100%-4px)] top-5 hidden w-28 overflow-visible text-(--muted) min-[840px]:block"
+            >
+              <path
+                d="M87 28C62 20 37 23 8 28M8 28l8-6M8 28l8 5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <text x="91" y="33" fill="currentColor">
+                me!
+              </text>
+            </svg>
+          </div>
+          <GitHubContributions />
+        </div>
     </section>
   );
 };

@@ -74,11 +74,73 @@ html.theme-transitioning *::after {
   opacity: 1;
 }
 
-.resume-callout text {
+.resume-callout text,
+.portrait-callout text {
   font-family: "Caveat Variable", "Bradley Hand", cursive;
   font-size: 19px;
   font-weight: 500;
   letter-spacing: 0;
+}
+
+.github-contributions-grid {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  justify-content: flex-start;
+}
+
+.github-contributions-cells {
+  display: grid;
+  flex: none;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(7, 2px);
+  grid-auto-columns: 2px;
+  gap: 1px;
+}
+
+.github-contributions-cells > span,
+.github-contribution-swatch {
+  display: block;
+  background: var(--github-level-0);
+}
+
+.github-contribution-swatch {
+  width: 5px;
+  height: 5px;
+}
+
+@media (min-width: 640px) {
+  .github-contributions-cells {
+    grid-template-rows: repeat(7, 8.3px);
+    grid-auto-columns: 8.3px;
+    gap: 2px;
+  }
+
+  .github-contribution-swatch {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+.github-contribution-level-0 {
+  --github-level-0: #ffffff;
+  box-shadow: inset 0 0 0 0.5px rgba(49, 89, 217, 0.18);
+}
+
+.github-contribution-level-1 {
+  --github-level-0: #dceaff;
+}
+
+.github-contribution-level-2 {
+  --github-level-0: #a8c7f5;
+}
+
+.github-contribution-level-3 {
+  --github-level-0: #729ee8;
+}
+
+.github-contribution-level-4 {
+  --github-level-0: #4774d5;
 }
 
 .polaroid-caption {
