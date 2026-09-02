@@ -87,7 +87,8 @@ html.theme-transitioning *::after {
 }
 
 .resume-callout text,
-.portrait-callout text {
+.portrait-callout text,
+.polaroid-callout text {
   font-family: "Caveat Variable", "Bradley Hand", cursive;
   font-size: 19px;
   font-weight: 500;

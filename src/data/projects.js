@@ -1,3 +1,5 @@
+import wranglrPhoto from "../assets/projects/wranglr.jpg";
+
 export const projects = [
   {
     title: "Wranglr",
@@ -5,6 +7,7 @@ export const projects = [
     description: "Next.js PWA + self-hosted Tailscale daemon for reviewing and approving Claude Code changes across parallel git worktrees from mobile.",
     thumb: "wranglr",
     caption: "Wranglr",
+    image: wranglrPhoto,
   },
   {
     title: "AssessMate",
