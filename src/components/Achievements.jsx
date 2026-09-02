@@ -9,7 +9,27 @@ const Achievements = () => {
   return (
     <div className="relative">
       <Section id="achievements" title="Achievements">
-        <div onMouseLeave={() => setHovered(null)}>
+        <div className="relative" onMouseLeave={() => setHovered(null)}>
+          <div className="pointer-events-none absolute inset-y-0 right-[calc(100%+12px)] hidden items-center gap-2 text-(--muted) min-[1000px]:flex">
+            <span className="polaroid-brace-label whitespace-nowrap">hover for polaroids</span>
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 32 200"
+              preserveAspectRatio="none"
+              className="h-full w-7 overflow-visible"
+            >
+              <path
+                d="M30 2C14 2 14 22 14 42V78C14 92 9 99 2 100C9 101 14 108 14 122V158C14 178 14 198 30 198"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                vectorEffect="non-scaling-stroke"
+              />
+            </svg>
+          </div>
+
           {achievements.map((item, index) => (
             <div
               key={item.name}
@@ -41,24 +61,6 @@ const Achievements = () => {
 
         <CursorPolaroid items={achievements} hovered={hovered} cursor={cursor} />
       </Section>
-
-      <svg
-        aria-hidden="true"
-        viewBox="0 0 196 58"
-        className="polaroid-callout pointer-events-none absolute left-[calc(100%-28px)] top-1/2 hidden w-48 -translate-y-1/2 overflow-visible text-(--muted) min-[1000px]:block"
-      >
-        <path
-          d="M188 18C142 8 78 14 10 28M10 28l9-7M10 28l10 5"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.4"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <text x="48" y="51" fill="currentColor">
-          hover for polaroids
-        </text>
-      </svg>
     </div>
   );
 };
