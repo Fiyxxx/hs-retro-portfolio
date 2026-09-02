@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goh Han Sheng - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @media print {
+            @page {
+                size: A4;
+                margin: 0.45in 1in;
+            }
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            html {
+                margin: 0;
+                padding: 0;
+            }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI",
+                Helvetica, Arial, sans-serif;
+            font-size: 8pt;
+            line-height: 1.05;
+            color: #000;
+            background: #fff;
+        }
+
+        .container {
+            max-width: 6in;
+            margin: 0 auto;
+            padding: 0.45in 1in;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 0.16in;
+            padding-bottom: 0.06in;
+        }
+
+        .name {
+            font-size: 14pt;
+            font-weight: 600;
+            margin-bottom: 0.03in;
+            letter-spacing: 0.01em;
+        }
+
+        .contact {
+            font-size: 7.5pt;
+            line-height: 1.05;
+        }
+
+        .contact a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        .contact a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 0.12in;
+        }
+
+        .section-title {
+            font-size: 8.5pt;
+            font-weight: 600;
+            font-variant: small-caps;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.03in;
+            padding-bottom: 0.02in;
+            border-bottom: 1px solid #333;
+        }
+
+        /* Entry */
+        .entry {
+            margin-bottom: 0.07in;
+        }
+
+        /* Company/School name + Degree/Role */
+        .company-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 8pt;
+            margin-bottom: 0.01in;
+        }
+
+        .company-name {
+            font-weight: 600;
+        }
+
+        .company-role {
+            font-style: italic;
+            font-size: 7.5pt;
+            margin: 0 0.08in;
+        }
+
+        .company-date {
+            font-size: 7.5pt;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        /* Bullets */
+        ul {
+            margin: 0.02in 0 0 0.14in;
+            padding-left: 0.1in;
+            list-style-position: outside;
+            font-size: 8pt;
+            line-height: 1.05;
+        }
+
+        li {
+            margin-bottom: 0.01in;
+        }
+
+        /* Skills section */
+        .skills-content {
+            font-size: 8pt;
+            line-height: 1.05;
+        }
+
+        .skill-line {
+            margin-bottom: 0.01in;
+        }
+
+        .skill-label {
+            font-weight: 600;
+            display: inline;
+        }
+
+        /* Print-specific */
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            .container {
+                padding: 0;
+                max-width: 100%;
+            }
+
+            a {
+                color: #000;
+                text-decoration: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="name">Goh Han Sheng</div>
+            <div class="contact">
+                Email: <a href="mailto:gohhansheng@u.nus.edu">gohhansheng@u.nus.edu</a> |
+                <a href="https://www.linkedin.com/in/goh-han-sheng/">LinkedIn</a> |
+                <a href="https://github.com/Fiyxxx">GitHub</a> |
+                <a href="https://hansheng.dev">Portfolio Website</a>
+            </div>
+        </div>
+
+        <!-- Education -->
+        <div class="section">
+            <div class="section-title">Education</div>
+            <div class="entry">
+                <div class="company-info">
+                    <span class="company-name">National University of Singapore</span>
+                    <span class="company-date">Aug 2025 – Present</span>
+                </div>
+                <div style="margin-top: 0.01in;">Bachelor of Computing in Business AI Systems</div>
+            </div>
+        </div>
+
+        <!-- Achievements -->
+        <div class="section">
+            <div class="section-title">Achievements</div>
+            <ul>
+                <li>1st place for Replit Hackathon 2026</li>
+                <li>2nd place for Cactus (YC S25) x Google DeepMind Hackathon Singapore 2026</li>
+                <li>2nd place for NUS Student Life Hackathon 2026</li>
+                <li>CCSGP Public Service Fellowship Awardee</li>
+                <li>AI Engineer Singapore Student Scholarship (1 of 20)</li>
+            </ul>
+        </div>
+
+        <!-- Experience -->
+        <div class="section">
+            <div class="section-title">Experience</div>
+
+            <div class="entry">
+                <div class="company-info">
+                    <span class="company-name">Ecovolt Technologies Pte Ltd</span>
+                    <span class="company-date">Sep 2025 – Present</span>
+                </div>
+                <div class="company-role">Software Engineer Intern</div>
+                <ul>
+                    <li>Spearheaded and built an autonomous building feedback-loop orchestration system anchored on secure NFC-based occupant feedback collection, converting real-time input into closed-loop actuator control (e.g. automatic temperature regulation), one of the core products delivered under a six-figure building-wide contract</li>
+                    <li>Designed and built the company's AI agent harness end-to-end (tool-calling loop, streaming, retrieval pipeline), powering a RAG documentation assistant that cut support tickets 80% and an in-app agent enabling chat-driven actions</li>
+                    <li>Built a cross-platform mobile app for the Everest platform, extending device control and monitoring to iOS and Android</li>
+                    <li>Built a real-time inactive-device alert API and notification system monitoring 4,000+ devices, cutting downtime and manual inspection overhead</li>
+                </ul>
+            </div>
+
+            <div class="entry">
+                <div class="company-info">
+                    <span class="company-name">Assessmate</span>
+                    <span class="company-date">Apr 2026 – Present</span>
+                </div>
+                <div class="company-role">Co-Founder</div>
+                <ul>
+                    <li>Co-founded and built an AI case-note copilot for early childhood intervention assessors, architecting a privacy-first, on-premise LLM + RAG pipeline over anonymized templates to generate schema-compliant notes</li>
+                    <li>Currently piloting the tool with 2 assessors</li>
+                </ul>
+            </div>
+
+            <div class="entry">
+                <div class="company-info">
+                    <span class="company-name">National University of Singapore</span>
+                    <span class="company-date">Mar 2026 – Present</span>
+                </div>
+                <div class="company-role">Frontend Developer</div>
+                <ul>
+                    <li>Designed and built a new multi-page section of the NUS Health & Wellbeing Department website as sole developer, wireframing user flows in Figma and Canva before implementing in WordPress via Beaver Builder</li>
+                    <li>Owned the UI/UX and information architecture across several pages, including a dedicated resource for business and HR leaders on wellbeing leadership</li>
+                </ul>
+            </div>
+
+            <div class="entry">
+                <div class="company-info">
+                    <span class="company-name">Centre for Strategic Infocomm Technologies</span>
+                    <span class="company-date">May 2026 – Jul 2026</span>
+                </div>
+                <div class="company-role">Cybersecurity Engineer Intern</div>
+                <ul>
+                    <li>Hardened a simulated enterprise network (Linux, Windows Server, pfSense) with two-factor SSH auth, network segmentation, and firewall policy enforcing least-privilege access</li>
+                    <li>Administered a Windows Active Directory domain with automated security policies, endpoint monitoring, and centralized logging, resolving live misconfigurations from security audits</li>
+                    <li>Reverse-engineered 6+ Windows malware samples using industry-standard tools (IDA Pro, WinDbg), uncovering custom packing, anti-debugging, and evasion techniques</li>
+                    <li>Reconstructed a multi-stage C2 protocol from network traffic and binary analysis, writing custom decryption tooling to recover encrypted attacker data</li>
+                </ul>
+            </div>
+
+            <div class="entry">
+                <div class="company-info">
+                    <span class="company-name">WorldQuant</span>
+                    <span class="company-date">Jul 2025 – Mar 2026</span>
+                </div>
+                <div class="company-role">Quantitative Research Consultant</div>
+                <ul>
+                    <li>Researched and translated over 20 academic finance papers into actionable trading alpha ideas</li>
+                    <li>Submitted 9 alphas using quantitative strategies, with top performers achieving Sharpe ratios above 2.0</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Projects -->
+        <div class="section">
+            <div class="section-title">Projects</div>
+
+            <div class="entry">
+                <div class="company-info">
+                    <span class="company-name">Wranglr</span>
+                    <span class="company-date">2026</span>
+                </div>
+                <ul>
+                    <li>Built a Next.js PWA pairing with a self-hosted Tailscale daemon, enabling engineers to review and approve Claude Code changes across parallel git worktrees from mobile, independently re-verifying tests and flagging hallucinated dependencies before merge.</li>
+                </ul>
+            </div>
+
+            <div class="entry">
+                <div class="company-info">
+                    <span class="company-name">Remember <a href="https://github.com/Fiyxxx/remember" style="font-weight:400;">[GitHub]</a></span>
+                    <span class="company-date">May 2026</span>
+                </div>
+                <ul>
+                    <li>Built a browser-based AI smart glasses emulator using real-time face recognition and a self-building knowledge graph to help dementia patients recall people and context (1st Place, Replit Hackathon 2026)</li>
+                </ul>
+            </div>
+
+            <div class="entry">
+                <div class="company-info">
+                    <span class="company-name">JustPromptBro IDE <a href="https://github.com/Fiyxxx/justpromptbro" style="font-weight:400;">[GitHub]</a></span>
+                    <span class="company-date">Jan 2026</span>
+                </div>
+                <ul>
+                    <li>Built a VS Code fork with agentic AI integration for AI-assisted coding</li>
+                    <li>Implemented a Solana-based gamification system with smart contracts rewarding coding activity</li>
+                </ul>
+            </div>
+
+            <div class="entry">
+                <div class="company-info">
+                    <span class="company-name">SemperStroke</span>
+                    <span class="company-date">Mar 2025 – Jul 2025</span>
+                </div>
+                <div class="company-role">Sole VR Engineer</div>
+                <ul>
+                    <li>Led development of 3 VR cognitive and motor skills training mini-games for stroke patients in Unity, in collaboration with NUS and NTU medical students, supporting hospital-to-community care transition</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Technical Skills and Certifications -->
+        <div class="section">
+            <div class="section-title">Technical Skills and Professional Certifications</div>
+            <div class="skills-content">
+                <div class="skill-line"><span class="skill-label">Programming Languages:</span> C#, C, Python, Java, JavaScript and frameworks (React, NextJS, NestJS)</div>
+                <div class="skill-line"><span class="skill-label">Certificates:</span> CS50X, CS50P, Stanford Machine Learning Specialisation, Odin Project</div>
+                <div class="skill-line"><span class="skill-label">Interests:</span> Agentic AI, Cybersecurity, Tech for Social Good</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

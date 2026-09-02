@@ -88,7 +88,7 @@ const Hero = () => {
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
-              <text x="91" y="33" fill="currentColor">
+              <text x="88" y="33" fill="currentColor">
                 me!
               </text>
             </svg>
