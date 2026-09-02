@@ -4,18 +4,13 @@ import { FiMoon, FiSun } from "react-icons/fi";
 const ThemeToggle = () => {
   const activeTransition = useRef(null);
   const [theme, setTheme] = useState(() => {
-    if (typeof document === "undefined") return "dark";
-    return document.documentElement.classList.contains("light") ? "light" : "dark";
+    if (typeof document === "undefined") return "light";
+    return document.documentElement.classList.contains("dark") ? "dark" : "light";
   });
 
   useEffect(() => {
     document.documentElement.classList.remove("dark", "light");
     document.documentElement.classList.add(theme);
-    try {
-      localStorage.setItem("theme", theme);
-    } catch {
-      /* localStorage unavailable */
-    }
   }, [theme]);
 
   const isDark = theme === "dark";
