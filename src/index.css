@@ -95,6 +95,19 @@ html.theme-transitioning *::after {
   letter-spacing: 0;
 }
 
+.intro-token {
+  opacity: 0;
+  filter: blur(1.5px);
+  transition:
+    opacity 140ms ease-out,
+    filter 180ms ease-out;
+}
+
+.intro-token.is-visible {
+  opacity: 1;
+  filter: blur(0);
+}
+
 .github-contributions-grid {
   display: flex;
   width: 100%;
@@ -231,6 +244,10 @@ html.theme-transitioning *::after {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
+  }
+  .intro-token {
+    opacity: 1;
+    filter: none;
   }
   .github-contribution-cell {
     animation-delay: 0ms;

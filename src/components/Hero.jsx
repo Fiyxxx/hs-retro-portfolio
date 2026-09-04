@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import profilePic from "../assets/avatar-cutout.png";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { FiFileText, FiMail } from "react-icons/fi";
@@ -10,6 +11,93 @@ const links = [
   { label: "Email", href: "mailto:gohhansheng@outlook.com", icon: FiMail },
   { label: "Resume", href: "/resume.pdf", resume: true, icon: FiFileText },
 ];
+
+const introSegments = [
+  { text: "hi, i'm han sheng/hans. ", accent: true },
+  { text: "currently super interested in " },
+  { text: "browser agents, harnesses, cybersecurity", accent: true },
+  {
+    text: " and how i can build a better world with ai. i study computing in national university of singapore (nus), but more than that, i love ",
+  },
+  { text: "entrepreneurship", accent: true },
+  { text: " and " },
+  { text: "bartending", accent: true },
+  { text: ". looking for " },
+  { text: "tech roles", accent: true },
+  { text: " in " },
+  { text: "silicon valley", accent: true },
+  { text: " rn (for jan 27 onwards), reach out to me for a chat or if you need a bartender ;)" },
+];
+
+const introText = introSegments.map(({ text }) => text).join("");
+
+const TypedIntro = () => {
+  const introRef = useRef(null);
+
+  useEffect(() => {
+    const tokens = Array.from(introRef.current?.querySelectorAll("[data-intro-token]") ?? []);
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      tokens.forEach((token) => token.classList.add("is-visible"));
+      return undefined;
+    }
+
+    let animationFrame;
+    let startedAt;
+    let visibleTokens = 0;
+
+    const revealTokens = (timestamp) => {
+      startedAt ??= timestamp;
+      const progress = Math.min((timestamp - startedAt) / 1100, 1);
+      const nextVisibleCount = Math.ceil(progress * tokens.length);
+
+      while (visibleTokens < nextVisibleCount) {
+        tokens[visibleTokens].classList.add("is-visible");
+        visibleTokens += 1;
+      }
+
+      if (progress < 1) animationFrame = requestAnimationFrame(revealTokens);
+    };
+
+    animationFrame = requestAnimationFrame(revealTokens);
+    return () => cancelAnimationFrame(animationFrame);
+  }, []);
+
+  return (
+    <p
+      ref={introRef}
+      aria-label={introText}
+      className="col-span-2 mt-4 text-[14px] leading-[1.65] text-(--muted) sm:col-span-1 sm:col-start-1 sm:row-start-2"
+    >
+      <span aria-hidden="true">
+        {introSegments.map((segment, segmentIndex) => {
+          const Segment = segment.accent ? "strong" : "span";
+
+          return (
+            <Segment
+              key={`${segmentIndex}-${segment.text}`}
+              className={segment.accent ? "font-semibold text-(--accent)" : undefined}
+            >
+              {segment.text.split(/(\s+)/).map((token, tokenIndex) => {
+                if (/^\s+$/.test(token)) return token;
+
+                return (
+                  <span
+                    key={`${segmentIndex}-${tokenIndex}`}
+                    data-intro-token
+                    className="intro-token whitespace-nowrap"
+                  >
+                    {token}
+                  </span>
+                );
+              })}
+            </Segment>
+          );
+        })}
+      </span>
+    </p>
+  );
+};
 
 const Hero = () => {
   return (
@@ -40,20 +128,7 @@ const Hero = () => {
         </svg>
       </div>
 
-      <p className="col-span-2 mt-4 text-[14px] leading-[1.65] text-(--muted) sm:col-span-1 sm:col-start-1 sm:row-start-2">
-        <strong className="font-semibold text-(--accent)">hi, i&apos;m han sheng/hans.</strong>{" "}
-        currently super interested in{" "}
-        <strong className="font-semibold text-(--accent)">
-          browser agents, harnesses, cybersecurity
-        </strong>{" "}
-        and how i can build a better world with ai. i study computing in national university of
-        singapore (nus), but more than that, i love{" "}
-        <strong className="font-semibold text-(--accent)">entrepreneurship</strong> and{" "}
-        <strong className="font-semibold text-(--accent)">bartending</strong>. looking for{" "}
-        <strong className="font-semibold text-(--accent)">tech roles</strong> in{" "}
-        <strong className="font-semibold text-(--accent)">silicon valley</strong> rn (for jan 27
-        onwards), reach out to me for a chat or if you need a bartender ;)
-      </p>
+      <TypedIntro />
 
       <div className="col-span-2 mt-5 flex flex-row items-start gap-5 sm:col-span-1 sm:col-start-1 sm:row-start-3 sm:flex-col sm:gap-3">
         {links.map(({ icon: Icon, ...link }) => (
