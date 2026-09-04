@@ -42,7 +42,10 @@ const GitHubContributions = () => {
   }, []);
 
   return (
-    <section className="mt-5 w-full max-w-[184px] sm:w-[34.5rem] sm:max-w-none" aria-label="GitHub activity">
+    <section
+      className="col-span-2 mt-5 w-full min-w-0 sm:col-span-1 sm:col-start-2 sm:row-start-3 sm:w-[34.5rem] sm:justify-self-end"
+      aria-label="GitHub activity"
+    >
       <div className="mb-2 flex flex-nowrap items-baseline justify-between gap-2 whitespace-nowrap">
         <a
           href={PROFILE_URL}

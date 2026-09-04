@@ -106,8 +106,8 @@ html.theme-transitioning *::after {
   display: grid;
   flex: none;
   grid-auto-flow: column;
-  grid-template-rows: repeat(7, 2px);
-  grid-auto-columns: 2px;
+  grid-template-rows: repeat(7, 4px);
+  grid-auto-columns: 4px;
   gap: 1px;
 }
 
@@ -133,6 +133,13 @@ html.theme-transitioning *::after {
 .github-contribution-swatch {
   width: 5px;
   height: 5px;
+}
+
+@media (min-width: 360px) and (max-width: 639px) {
+  .github-contributions-cells {
+    grid-template-rows: repeat(7, 5px);
+    grid-auto-columns: 5px;
+  }
 }
 
 @media (min-width: 640px) {
