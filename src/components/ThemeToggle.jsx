@@ -37,7 +37,7 @@ const ThemeToggle = () => {
       aria-label="Toggle theme"
       title={isDark ? "Use light theme" : "Use dark theme"}
     >
-      {isDark ? <FiSun size={13} /> : <FiMoon size={13} />}
+      {isDark ? <FiSun size={14} /> : <FiMoon size={14} />}
     </button>
   );
 };

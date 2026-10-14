@@ -28,7 +28,7 @@ html, body {
 body {
   margin: 0;
   font-family: "Figtree Variable", Figtree, ui-sans-serif, system-ui, sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.55;
   background-color: var(--paper);
   color: var(--ink);
@@ -42,7 +42,7 @@ body {
 /* Left-of-centre single column, after zainjavaid.com. */
 .page {
   width: 100%;
-  max-width: calc(620px + 2 * 20px);
+  max-width: calc(680px + 2 * 20px);
   padding: 48px 20px 40px;
 }
 
@@ -115,7 +115,7 @@ html.theme-switching *::after {
 
 .logo {
   display: inline-block;
-  height: 13px;
+  height: 14px;
   width: auto;
   margin-right: 4px;
   vertical-align: -2px;
@@ -173,7 +173,7 @@ html.theme-switching *::after {
 
 .post-body h1 {
   margin-top: 0;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .post-body ul,
@@ -207,7 +207,7 @@ html.theme-switching *::after {
 }
 
 .post-body code {
-  font-size: 12px;
+  font-size: 13px;
 }
 
 @media (prefers-reduced-motion: reduce) {

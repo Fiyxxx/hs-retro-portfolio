@@ -12,7 +12,7 @@ const Footer = () => {
   const onWriting = pathname.startsWith("/writing") || pathname.startsWith("/blog");
 
   return (
-    <footer className="reveal mt-10 flex items-center justify-between gap-4 text-[12px] text-(--muted)">
+    <footer className="reveal mt-10 flex items-center justify-between gap-4 text-[13px] text-(--muted)">
       <nav className="flex gap-4">
         {pages.map((page) => {
           const active = (page.to === "/writing") === onWriting;

@@ -18,7 +18,7 @@ const Writing = () => {
             <Link to={`/writing/${post.slug}`} className="mark">
               <span className="link">{post.title}</span>
             </Link>
-            <span className="shrink-0 text-[12px] tabular-nums text-(--muted)">{post.date}</span>
+            <span className="shrink-0 text-[13px] tabular-nums text-(--muted)">{post.date}</span>
           </li>
         ))}
       </ul>

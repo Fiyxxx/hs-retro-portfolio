@@ -13,7 +13,9 @@ const link = (label, href) => ({ mark: { label, href } });
 // word by word, marks (logo + link) are revealed as a single token.
 const paragraphs = [
   [
-    "hi, i'm han sheng/hans! currently super interested in ",
+    "hi, i'm ",
+    accent("han sheng/hans"),
+    "! currently super interested in ",
     accent("agent infra"),
     ", ",
     accent("robotics"),

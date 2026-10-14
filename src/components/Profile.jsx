@@ -26,10 +26,10 @@ const Profile = () => {
             title={link.label}
             className="transition-colors hover:text-(--ink)"
           >
-            <Icon size={14} />
+            <Icon size={15} />
           </a>
         ))}
-        <Link to="/writing" className="ml-1 whitespace-nowrap text-[12px] transition-colors hover:text-(--ink)">
+        <Link to="/writing" className="ml-1 whitespace-nowrap text-[13px] transition-colors hover:text-(--ink)">
           writing →
         </Link>
       </div>
