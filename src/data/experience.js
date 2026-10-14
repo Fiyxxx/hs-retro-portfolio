@@ -2,21 +2,24 @@ import { orgs } from "./orgs";
 
 const at = (org) => ({ label: org.name, href: org.href, logos: org.logo ? [org.logo] : [] });
 
-export const experience = [
+export const current = [
+  {
+    lead: "software engineer",
+    ...at(orgs.ecovolt),
+    note: "ai agent harness, rag support assistant, iot device monitoring",
+  },
   {
     lead: "co-founder",
     ...at(orgs.assessmate),
     note: "on-prem ai case-notes copilot for early childhood assessors",
   },
+];
+
+export const prev = [
   {
     lead: "frontend dev",
     ...at(orgs.nus),
     note: "making nus health & wellbeing webpages better",
-  },
-  {
-    lead: "software engineer",
-    ...at(orgs.ecovolt),
-    note: "ai agent harness, rag support assistant, iot device monitoring",
   },
   {
     lead: "cybersecurity engineer",

@@ -1,5 +1,4 @@
 import { useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
 import Mark from "./Mark";
 import { orgs } from "../data/orgs";
 
@@ -8,7 +7,6 @@ const org = (key) => {
   return { mark: { label: name, href, logos: [logo] } };
 };
 const accent = (text) => ({ accent: text });
-const link = (label, href) => ({ mark: { label, href } });
 
 // Each paragraph is a list of parts: plain strings and accents are revealed
 // word by word, marks (logo + link) are revealed as a single token.
@@ -33,19 +31,6 @@ const paragraphs = [
     accent("bartend"),
     ", so reach out for a chat or if you need a bartender ;)",
   ],
-  [
-    "say hi over ",
-    link("email", "mailto:gohhansheng@outlook.com"),
-    " or ",
-    link("linkedin", "https://linkedin.com/in/goh-han-sheng"),
-    ", see what i'm building on ",
-    link("github", "https://github.com/Fiyxxx"),
-    ", grab my ",
-    link("résumé", "/resume.pdf"),
-    ", or read my ",
-    { route: { label: "writing", to: "/writing" } },
-    ".",
-  ],
 ];
 
 const tokenize = (part) => {
@@ -60,13 +45,6 @@ const tokenize = (part) => {
 
 const Token = ({ token }) => {
   if (token.mark) return <Mark {...token.mark} />;
-  if (token.route) {
-    return (
-      <Link to={token.route.to} className="mark">
-        <span className="link">{token.route.label}</span>
-      </Link>
-    );
-  }
   return token.accent ? <strong className="font-semibold text-(--accent)">{token.word}</strong> : token.word;
 };
 
@@ -87,7 +65,7 @@ const Intro = () => {
 
     const revealTokens = (timestamp) => {
       startedAt ??= timestamp;
-      const progress = Math.min((timestamp - startedAt) / 1400, 1);
+      const progress = Math.min((timestamp - startedAt) / 1100, 1);
       const nextVisibleCount = Math.ceil(progress * tokens.length);
 
       while (visibleTokens < nextVisibleCount) {

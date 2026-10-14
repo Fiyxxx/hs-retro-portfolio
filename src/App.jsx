@@ -1,18 +1,21 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Analytics } from '@vercel/analytics/react';
+import Profile from './components/Profile';
 import Intro from './components/Intro';
 import Entries from './components/Entries';
 import Footer from './components/Footer';
 import Writing from './pages/Writing';
 import Post from './pages/posts/Post';
-import { experience } from './data/experience';
+import { current, prev } from './data/experience';
 import { achievements } from './data/achievements';
 import { projects } from './data/projects';
 
 const Home = () => (
   <>
+    <Profile />
     <Intro />
-    <Entries title="experience" items={experience} />
+    <Entries title="current" items={current} />
+    <Entries title="prev" items={prev} />
     <Entries title="achievements" items={achievements} />
     <Entries title="projects" items={projects} />
   </>

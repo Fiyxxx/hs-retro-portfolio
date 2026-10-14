@@ -9,7 +9,7 @@ const Entries = ({ title, items }) => {
           <li key={`${item.lead}-${item.label}`}>
             {item.lead && <>{item.lead}, </>}
             <Mark label={item.label} href={item.href} logos={item.logos} />
-            <span className="text-(--muted)"> — {item.note}</span>
+            {item.note && <span className="text-(--muted)">, {item.note}</span>}
           </li>
         ))}
       </ul>

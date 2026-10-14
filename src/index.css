@@ -28,7 +28,7 @@ html, body {
 body {
   margin: 0;
   font-family: "Figtree Variable", Figtree, ui-sans-serif, system-ui, sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.7;
   background-color: var(--paper);
   color: var(--ink);
@@ -43,28 +43,27 @@ body {
 .page {
   width: 100%;
   max-width: calc(620px + 2 * 20px);
-  padding: 72px 20px 40px;
+  padding: 96px 20px 40px;
 }
 
 @media (min-width: 768px) {
   .page {
     margin-left: clamp(20px, 14vw, 260px);
-    padding-top: clamp(96px, 20vh, 200px);
+    padding-top: clamp(128px, 26vh, 260px);
   }
 }
 
-/* Theme switch: every colour eases to the other palette. */
-html.theme-fading,
-html.theme-fading *,
-html.theme-fading *::before,
-html.theme-fading *::after {
-  transition:
-    background-color 500ms ease,
-    color 500ms ease,
-    border-color 500ms ease,
-    text-decoration-color 500ms ease,
-    fill 500ms ease,
-    stroke 500ms ease !important;
+/* Theme switch: a quick cross-fade between full-page snapshots. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 220ms;
+  animation-timing-function: ease-out;
+}
+
+html.theme-switching *,
+html.theme-switching *::before,
+html.theme-switching *::after {
+  transition: none !important;
 }
 
 .mark {
@@ -85,7 +84,7 @@ html.theme-fading *::after {
 
 .logo {
   display: inline-block;
-  height: 14px;
+  height: 13px;
   width: auto;
   margin-right: 4px;
   vertical-align: -2px;
@@ -115,6 +114,10 @@ html.theme-fading *::after {
   animation-delay: 900ms;
 }
 
+.reveal-early {
+  animation: reveal 600ms ease-out both;
+}
+
 @keyframes reveal {
   from {
     opacity: 0;
@@ -139,7 +142,7 @@ html.theme-fading *::after {
 
 .post-body h1 {
   margin-top: 0;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .post-body ul,
@@ -173,7 +176,7 @@ html.theme-fading *::after {
 }
 
 .post-body code {
-  font-size: 13px;
+  font-size: 12px;
 }
 
 @media (prefers-reduced-motion: reduce) {

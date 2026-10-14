@@ -1,28 +1,33 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { FiMoon, FiSun } from "react-icons/fi";
 
-const FADE_MS = 500;
-
 const ThemeToggle = () => {
-  const fadeTimer = useRef(null);
   const [theme, setTheme] = useState(() =>
     document.documentElement.classList.contains("dark") ? "dark" : "light",
   );
   const isDark = theme === "dark";
 
   const toggleTheme = () => {
-    const root = document.documentElement;
     const nextTheme = isDark ? "light" : "dark";
+    const root = document.documentElement;
+    const apply = () => {
+      root.classList.remove("dark", "light");
+      root.classList.add(nextTheme);
+      setTheme(nextTheme);
+    };
 
-    // Colours are CSS variables, so a short global colour transition lets the
-    // whole page ease into the other palette instead of snapping.
-    root.classList.add("theme-fading");
-    root.classList.remove("dark", "light");
-    root.classList.add(nextTheme);
-    setTheme(nextTheme);
-
-    clearTimeout(fadeTimer.current);
-    fadeTimer.current = setTimeout(() => root.classList.remove("theme-fading"), FADE_MS);
+    // Cross-fade one snapshot of the whole page so every colour lands at once,
+    // rather than each element running its own transition.
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!document.startViewTransition || reduceMotion) {
+      apply();
+      return;
+    }
+    // Hover colour transitions would otherwise lag behind the swap.
+    root.classList.add("theme-switching");
+    document
+      .startViewTransition(apply)
+      .finished.finally(() => root.classList.remove("theme-switching"));
   };
 
   return (
@@ -32,7 +37,7 @@ const ThemeToggle = () => {
       aria-label="Toggle theme"
       title={isDark ? "Use light theme" : "Use dark theme"}
     >
-      {isDark ? <FiSun size={14} /> : <FiMoon size={14} />}
+      {isDark ? <FiSun size={13} /> : <FiMoon size={13} />}
     </button>
   );
 };
