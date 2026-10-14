@@ -42,7 +42,7 @@ body {
 /* Left-of-centre single column, after zainjavaid.com. */
 .page {
   width: 100%;
-  max-width: calc(680px + 2 * 20px);
+  max-width: calc(600px + 2 * 20px);
   padding: 48px 20px 40px;
 }
 

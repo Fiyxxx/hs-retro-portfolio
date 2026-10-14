@@ -26,13 +26,9 @@ const paragraphs = [
   [
     "incoming at an ai robotics startup backed by ",
     org("yc"),
-    ", and will be in sf for the whole of 2027. i study computing at ",
+    ". i'll be in sf for all of 2027. i study computing at ",
     org("nus"),
-    ", but more than that, i love ",
-    accent("entrepreneurship"),
-    " and ",
-    accent("bartending"),
-    ". in my free time, i make a mean cocktail, so reach out for a ",
+    ", but more than that, i love entrepreneurship and bartending. in my free time, i make a mean cocktail, so reach out for a ",
     link("chat", "https://linkedin.com/in/goh-han-sheng"),
     " or if you need a bartender ;)",
   ],
@@ -86,7 +82,7 @@ const Intro = () => {
   }, []);
 
   return (
-    <section ref={introRef} className="flex flex-col gap-2.5">
+    <section ref={introRef} className="flex max-w-[540px] flex-col gap-2.5">
       <h1 className="sr-only">Han Sheng</h1>
       {paragraphs.map((parts, paragraphIndex) => (
         <p key={paragraphIndex}>

@@ -2,7 +2,7 @@ export const projects = [
   {
     label: "llm-critic-loop",
     href: "https://github.com/Fiyxxx/llm-critic-loop",
-    note: "an adversarial, fresh-session mcp reviewer for your coding agent",
+    note: "a second ai that critiques your coding agent's work",
   },
   {
     label: "wranglr",

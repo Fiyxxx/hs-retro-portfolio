@@ -4,7 +4,7 @@ const at = (org) => ({ label: org.name, href: org.href, logos: org.logo ? [org.l
 
 export const current = [
   {
-    lead: "software engineer intern",
+    lead: "swe intern",
     ...at(orgs.ecovolt),
     note: "ai agent harness and iot device monitoring for energy tech",
   },
@@ -17,9 +17,9 @@ export const current = [
 
 export const prev = [
   {
-    lead: "cybersecurity engineer intern",
+    lead: "cybersec intern",
     ...at(orgs.csit),
-    note: "hardening networks and reversing malware for the government",
+    note: "hardening networks and reversing malware",
   },
   {
     lead: "frontend dev",
