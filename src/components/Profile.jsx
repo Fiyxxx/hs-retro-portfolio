@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { FiFileText, FiMail } from "react-icons/fi";
 import avatar from "../assets/avatar.jpg";
+import Donut from "./Donut";
 
 const links = [
   { label: "linkedin", href: "https://linkedin.com/in/goh-han-sheng", icon: FaLinkedinIn },
@@ -12,8 +13,8 @@ const links = [
 
 const Profile = () => {
   return (
-    <div className="reveal-early mb-6 flex items-end gap-4">
-      <img src={avatar} alt="Han Sheng" className="size-14" />
+    <div className="reveal-early mb-4 flex items-end gap-4">
+      <img src={avatar} alt="Han Sheng" className="avatar" />
       <div className="flex items-center gap-3.5 text-(--muted)">
         {links.map(({ icon: Icon, ...link }) => (
           <a
@@ -28,10 +29,11 @@ const Profile = () => {
             <Icon size={14} />
           </a>
         ))}
-        <Link to="/writing" className="ml-1 text-[12px] transition-colors hover:text-(--ink)">
+        <Link to="/writing" className="ml-1 whitespace-nowrap text-[12px] transition-colors hover:text-(--ink)">
           writing →
         </Link>
       </div>
+      <Donut />
     </div>
   );
 };

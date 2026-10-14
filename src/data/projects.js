@@ -6,7 +6,8 @@ export const projects = [
   },
   {
     label: "wranglr",
-    note: "review and approve claude code changes across git worktrees from your phone",
+    href: "https://wranglr.vercel.app",
+    note: "control your herdr terminal from anywhere, live sessions, prompts and approvals",
   },
   {
     label: "remember",

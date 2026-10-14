@@ -81,7 +81,7 @@ const Intro = () => {
   }, []);
 
   return (
-    <section ref={introRef} className="flex flex-col gap-4">
+    <section ref={introRef} className="flex flex-col gap-2.5">
       <h1 className="sr-only">Han Sheng</h1>
       {paragraphs.map((parts, paragraphIndex) => (
         <p key={paragraphIndex}>

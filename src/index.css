@@ -29,7 +29,7 @@ body {
   margin: 0;
   font-family: "Figtree Variable", Figtree, ui-sans-serif, system-ui, sans-serif;
   font-size: 13px;
-  line-height: 1.7;
+  line-height: 1.55;
   background-color: var(--paper);
   color: var(--ink);
 }
@@ -43,13 +43,13 @@ body {
 .page {
   width: 100%;
   max-width: calc(620px + 2 * 20px);
-  padding: 96px 20px 40px;
+  padding: 48px 20px 40px;
 }
 
 @media (min-width: 768px) {
   .page {
     margin-left: clamp(20px, 14vw, 260px);
-    padding-top: clamp(128px, 26vh, 260px);
+    padding-top: clamp(64px, 13vh, 130px);
   }
 }
 
@@ -64,6 +64,39 @@ html.theme-switching *,
 html.theme-switching *::before,
 html.theme-switching *::after {
   transition: none !important;
+}
+
+.avatar {
+  width: 88px;
+  height: 88px;
+  flex: none;
+  border: 0.5px solid var(--ink);
+}
+
+.donut {
+  width: 88px;
+  height: 88px;
+  flex: none;
+  margin-left: auto;
+  color: var(--ink);
+  cursor: grab;
+  touch-action: none;
+}
+
+.donut:active {
+  cursor: grabbing;
+}
+
+@media (max-width: 420px) {
+  .avatar {
+    width: 72px;
+    height: 72px;
+  }
+
+  .donut {
+    width: 64px;
+    height: 64px;
+  }
 }
 
 .mark {

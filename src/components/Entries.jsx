@@ -2,9 +2,9 @@ import Mark from "./Mark";
 
 const Entries = ({ title, items }) => {
   return (
-    <section className="reveal mt-10">
-      <h2 className="mb-2 text-(--muted)">{title}</h2>
-      <ul className="flex flex-col gap-2 sm:gap-0">
+    <section className="reveal mt-6">
+      <h2 className="mb-0.5 text-(--muted)">{title}</h2>
+      <ul className="flex flex-col gap-1.5 sm:gap-0">
         {items.map((item) => (
           <li key={`${item.lead}-${item.label}`}>
             {item.lead && <>{item.lead}, </>}

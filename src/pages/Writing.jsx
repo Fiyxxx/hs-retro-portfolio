@@ -11,7 +11,7 @@ const posts = [
 const Writing = () => {
   return (
     <section className="reveal">
-      <h1 className="mb-2 text-(--muted)">writing</h1>
+      <h1 className="mb-0.5 text-(--muted)">writing</h1>
       <ul>
         {posts.map((post) => (
           <li key={post.slug} className="flex items-baseline justify-between gap-4">
