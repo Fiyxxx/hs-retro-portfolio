@@ -4,27 +4,24 @@ const posts = [
   {
     slug: "startup-takeaways",
     title: "my takeaways 8 months deep in a startup",
-    description: "30/4/26",
+    date: "30/4/26",
   },
 ];
 
 const Writing = () => {
   return (
-    <section className="w-full py-10">
-      <div className="flex flex-col gap-8">
-        <h1 className="text-[16px] font-semibold text-(--ink)">Writing</h1>
-
-        <div className="flex flex-col gap-6">
-          {posts.map((post) => (
-            <Link key={post.slug} to={`/writing/${post.slug}`} className="group">
-              <h2 className="text-[15px] font-semibold text-(--ink) transition-colors group-hover:text-(--accent)">
-                {post.title}
-              </h2>
-              <p className="text-[13px] text-(--muted)">{post.description}</p>
+    <section className="reveal">
+      <h1 className="mb-2 text-(--muted)">writing</h1>
+      <ul>
+        {posts.map((post) => (
+          <li key={post.slug} className="flex items-baseline justify-between gap-4">
+            <Link to={`/writing/${post.slug}`} className="mark">
+              <span className="link">{post.title}</span>
             </Link>
-          ))}
-        </div>
-      </div>
+            <span className="shrink-0 text-[13px] tabular-nums text-(--muted)">{post.date}</span>
+          </li>
+        ))}
+      </ul>
     </section>
   );
 };

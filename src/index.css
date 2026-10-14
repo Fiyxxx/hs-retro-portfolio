@@ -7,13 +7,6 @@
   --muted: #98a4ba;
   --rule: #202a40;
   --accent: #ff8a5b;
-  --accent-soft: #ffad8c;
-  --github-level-0: #172033;
-  --github-level-1: #583129;
-  --github-level-2: #8d4936;
-  --github-level-3: #c86646;
-  --github-level-4: #ff8a5b;
-  --github-level-0-border: rgba(255, 138, 91, 0.12);
 }
 
 html.light {
@@ -22,13 +15,6 @@ html.light {
   --muted: #62656f;
   --rule: #d8d1c3;
   --accent: #3159d9;
-  --accent-soft: #5b79e5;
-  --github-level-0: #ffffff;
-  --github-level-1: #dceaff;
-  --github-level-2: #a8c7f5;
-  --github-level-3: #729ee8;
-  --github-level-4: #4774d5;
-  --github-level-0-border: rgba(49, 89, 217, 0.18);
 }
 
 * {
@@ -39,24 +25,13 @@ html, body {
   min-height: 100%;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   margin: 0;
   font-family: "Figtree Variable", Figtree, ui-sans-serif, system-ui, sans-serif;
-  font-size: 15px;
-  line-height: 1.5;
+  font-size: 14px;
+  line-height: 1.7;
   background-color: var(--paper);
   color: var(--ink);
-  letter-spacing: -0.005em;
-}
-
-html.theme-transitioning *,
-html.theme-transitioning *::before,
-html.theme-transitioning *::after {
-  transition: none !important;
 }
 
 ::selection {
@@ -64,35 +39,57 @@ html.theme-transitioning *::after {
   color: #fff;
 }
 
-.dithered-portrait {
+/* Left-of-centre single column, after zainjavaid.com. */
+.page {
   width: 100%;
-  max-width: 184px;
-  aspect-ratio: 1;
-  justify-self: end;
-  cursor: crosshair;
-  user-select: none;
-  touch-action: manipulation;
+  max-width: calc(620px + 2 * 20px);
+  padding: 72px 20px 40px;
 }
 
-.dithered-portrait canvas {
-  display: block;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 240ms ease;
+@media (min-width: 768px) {
+  .page {
+    margin-left: clamp(20px, 14vw, 260px);
+    padding-top: clamp(96px, 20vh, 200px);
+  }
 }
 
-.dithered-portrait canvas[data-ready] {
-  opacity: 1;
+/* Theme switch: every colour eases to the other palette. */
+html.theme-fading,
+html.theme-fading *,
+html.theme-fading *::before,
+html.theme-fading *::after {
+  transition:
+    background-color 500ms ease,
+    color 500ms ease,
+    border-color 500ms ease,
+    text-decoration-color 500ms ease,
+    fill 500ms ease,
+    stroke 500ms ease !important;
 }
 
-.resume-callout text,
-.portrait-callout text,
-.polaroid-brace-label {
-  font-family: "Caveat Variable", "Bradley Hand", cursive;
-  font-size: 19px;
-  font-weight: 500;
-  letter-spacing: 0;
+.mark {
+  white-space: nowrap;
+}
+
+.link {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: color-mix(in srgb, currentColor 35%, transparent);
+  transition: text-decoration-color 150ms ease;
+}
+
+.mark:hover .link {
+  text-decoration-color: var(--accent);
+}
+
+.logo {
+  display: inline-block;
+  height: 14px;
+  width: auto;
+  margin-right: 4px;
+  vertical-align: -2px;
+  border-radius: 3px;
 }
 
 .intro-token {
@@ -108,148 +105,85 @@ html.theme-transitioning *::after {
   filter: blur(0);
 }
 
-.github-contributions-grid {
-  display: flex;
-  width: 100%;
-  overflow: hidden;
-  justify-content: flex-start;
+/* Sections settle in once the intro has mostly typed itself out. */
+.reveal {
+  animation: reveal 500ms ease-out both;
 }
 
-.github-contributions-cells {
-  display: grid;
-  flex: none;
-  grid-auto-flow: column;
-  grid-template-rows: repeat(7, 4px);
-  grid-auto-columns: 4px;
-  gap: 1px;
+.page:has(.intro-token) .reveal {
+  animation-duration: 700ms;
+  animation-delay: 900ms;
 }
 
-.github-contributions-cells > span,
-.github-contribution-swatch {
-  display: block;
-}
-
-.github-contribution-cell {
-  opacity: 0;
-  transform: scale(0.55);
-  animation: contribution-reveal 220ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  animation-delay: var(--reveal-delay);
-}
-
-@keyframes contribution-reveal {
-  to {
-    opacity: 1;
-    transform: scale(1);
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
   }
 }
 
-.github-contribution-swatch {
-  width: 5px;
-  height: 5px;
+.post-body p,
+.post-body ul,
+.post-body ol,
+.post-body pre,
+.post-body blockquote {
+  margin: 0 0 14px;
 }
 
-@media (min-width: 360px) and (max-width: 639px) {
-  .github-contributions-cells {
-    grid-template-rows: repeat(7, 5px);
-    grid-auto-columns: 5px;
-  }
+.post-body h1,
+.post-body h2,
+.post-body h3 {
+  margin: 24px 0 8px;
+  font-weight: 600;
 }
 
-@media (min-width: 640px) {
-  .github-contributions-cells {
-    grid-template-rows: repeat(7, 8.3px);
-    grid-auto-columns: 8.3px;
-    gap: 2px;
-  }
-
-  .github-contribution-swatch {
-    width: 8px;
-    height: 8px;
-  }
+.post-body h1 {
+  margin-top: 0;
+  font-size: 16px;
 }
 
-.github-contribution-level-0 {
-  background: var(--github-level-0);
-  box-shadow: inset 0 0 0 0.5px var(--github-level-0-border);
+.post-body ul,
+.post-body ol {
+  padding-left: 20px;
 }
 
-.github-contribution-level-1 {
-  background: var(--github-level-1);
+.post-body ul {
+  list-style: disc;
 }
 
-.github-contribution-level-2 {
-  background: var(--github-level-2);
+.post-body ol {
+  list-style: decimal;
 }
 
-.github-contribution-level-3 {
-  background: var(--github-level-3);
+.post-body a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
-.github-contribution-level-4 {
-  background: var(--github-level-4);
+.post-body blockquote {
+  border-left: 2px solid var(--rule);
+  padding-left: 16px;
+  color: var(--muted);
 }
 
-.polaroid-caption {
-  font-family: "Caveat Variable", "Bradley Hand", cursive;
-  font-size: 19px;
-  font-weight: 500;
-  line-height: 1.2;
-  letter-spacing: 0;
+.post-body hr {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 20px 0;
 }
 
-.theme-ripple {
-  position: fixed;
-  inset: 0;
-  z-index: 100;
-  overflow: hidden;
-  pointer-events: none;
-  color: var(--ink);
-  background: var(--paper);
-}
-
-.theme-ripple[data-ripple-theme="dark"] {
-  --paper: #0a1020;
-  --ink: #eef2fa;
-  --muted: #98a4ba;
-  --rule: #202a40;
-  --accent: #ff8a5b;
-  --accent-soft: #ffad8c;
-  --github-level-0: #172033;
-  --github-level-1: #583129;
-  --github-level-2: #8d4936;
-  --github-level-3: #c86646;
-  --github-level-4: #ff8a5b;
-  --github-level-0-border: rgba(255, 138, 91, 0.12);
-}
-
-.theme-ripple[data-ripple-theme="light"] {
-  --paper: #f4f0e6;
-  --ink: #171a24;
-  --muted: #62656f;
-  --rule: #d8d1c3;
-  --accent: #3159d9;
-  --accent-soft: #5b79e5;
-  --github-level-0: #ffffff;
-  --github-level-1: #dceaff;
-  --github-level-2: #a8c7f5;
-  --github-level-3: #729ee8;
-  --github-level-4: #4774d5;
-  --github-level-0-border: rgba(49, 89, 217, 0.18);
+.post-body code {
+  font-size: 13px;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
     transition-duration: 0.01ms !important;
   }
   .intro-token {
     opacity: 1;
     filter: none;
-  }
-  .github-contribution-cell {
-    animation-delay: 0ms;
   }
 }

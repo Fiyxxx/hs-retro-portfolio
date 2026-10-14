@@ -1,49 +1,38 @@
-import replitPhoto from "../assets/achievements/replit-hackathon.png";
-import cactusPhoto from "../assets/achievements/cactus-deepmind.png";
-import aiSingaporePhoto from "../assets/achievements/ai-singapore.png";
-import studentLifePhoto from "../assets/achievements/student-life-hackathon.jpg";
-import ccsgpPhoto from "../assets/achievements/ccsgp-fellowship.jpg";
+import { orgs } from "./orgs";
 
 export const achievements = [
   {
-    name: "Replit Hackathon 2026",
-    content: "Built Remember, an AR smart glasses emulator with a human memory layer for patients with dementia.",
-    link: "https://www.linkedin.com/feed/update/urn:li:activity:7456726410288881664/",
-    place: "1st place",
-    caption: "Replit Hackathon, 2026",
-    image: replitPhoto,
+    lead: "1st place",
+    label: "replit hackathon",
+    href: "https://www.linkedin.com/feed/update/urn:li:activity:7456726410288881664/",
+    logos: [orgs.replit.logo],
+    note: "remember, smart glasses with a memory layer for dementia",
   },
   {
-    name: "Cactus (YC S25) x Google DeepMind Hackathon Singapore 2026",
-    content: "Built SecureClaw, a privacy-first OpenClaw layer, winning $5000 in Gemini credits.",
-    link: "https://www.linkedin.com/feed/update/urn:li:activity:7433763987210784768/",
-    place: "2nd place",
-    caption: "Cactus × DeepMind, 2026",
-    image: cactusPhoto,
+    lead: "2nd place",
+    label: "cactus × deepmind hackathon",
+    href: "https://www.linkedin.com/feed/update/urn:li:activity:7433763987210784768/",
+    logos: [orgs.cactus.logo, orgs.deepmind.logo],
+    note: "secureclaw, a privacy-first openclaw layer",
   },
   {
-    name: "NUS Student Life Hackathon 2026",
-    content: "Built SortingHat AI, a smarter, seamless student room allocation tool for RCs.",
-    link: "#",
-    place: "2nd place",
-    caption: "NUS Student Life, 2026",
-    image: studentLifePhoto,
+    lead: "2nd place",
+    label: "nus student life hackathon",
+    logos: [orgs.nus.logo],
+    note: "sortinghat ai, smarter room allocation for rcs",
   },
   {
-    name: "CCSGP Public Service Fellowship Awardee",
-    content: "Funded to build AssessMate, an AI case-notes copilot for early childhood intervention assessors.",
-    link: "https://www.ccsgp.comp.nus.edu.sg/fellowship-programme",
-    place: null,
-    caption: "CCSGP Fellowship",
-    image: ccsgpPhoto,
-    polaroid: "portrait",
+    lead: "fellow",
+    label: "ccsgp public service fellowship",
+    href: "https://www.ccsgp.comp.nus.edu.sg/fellowship-programme",
+    logos: [orgs.nus.logo],
+    note: "funded to build assessmate",
   },
   {
-    name: "AI Engineer Singapore Student Scholarship",
-    content: "Selected as 1 of 20 recipients nationwide.",
-    link: "#",
-    place: null,
-    caption: "AI Singapore Scholar",
-    image: aiSingaporePhoto,
+    lead: "scholar",
+    label: "ai engineer singapore",
+    href: orgs.aie.href,
+    logos: [orgs.aie.logo],
+    note: "1 of 20 student scholarships nationwide",
   },
 ];

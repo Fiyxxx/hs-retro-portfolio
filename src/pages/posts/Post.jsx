@@ -7,25 +7,18 @@ const Post = () => {
   const content = postMap[slug];
 
   if (!content) {
-    return (
-      <div className="py-10 text-(--ink)">
-        404: Post not found
-      </div>
-    );
+    return <div className="text-(--muted)">post not found.</div>;
   }
 
   return (
-    <div className="py-10">
-      <Link
-        to="/writing"
-        className="text-[13px] text-(--muted) transition-colors hover:text-(--accent)"
-      >
-        ← Writing
+    <article className="reveal">
+      <Link to="/writing" className="text-(--muted) transition-colors hover:text-(--ink)">
+        ← writing
       </Link>
-      <div className="prose prose-sm prose-invert light:prose-neutral mt-6 max-w-none text-(--ink)">
+      <div className="post-body mt-6">
         <ReactMarkdown>{content}</ReactMarkdown>
       </div>
-    </div>
+    </article>
   );
 };
 

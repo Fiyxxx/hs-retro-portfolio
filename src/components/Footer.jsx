@@ -1,7 +1,37 @@
+import { Link, useLocation } from "react-router-dom";
+import Clock from "./Clock";
+import ThemeToggle from "./ThemeToggle";
+
+const pages = [
+  { to: "/", label: "home" },
+  { to: "/writing", label: "writing" },
+];
+
 const Footer = () => {
+  const { pathname } = useLocation();
+  const onWriting = pathname.startsWith("/writing") || pathname.startsWith("/blog");
+
   return (
-    <footer className="w-full py-10 text-center text-[13px] text-(--muted)">
-      <p className="px-4">Han Sheng © {new Date().getFullYear()}</p>
+    <footer className="reveal mt-16 flex items-center justify-between gap-4 text-[13px] text-(--muted)">
+      <nav className="flex gap-4">
+        {pages.map((page) => {
+          const active = (page.to === "/writing") === onWriting;
+          return (
+            <Link
+              key={page.to}
+              to={page.to}
+              aria-current={active ? "page" : undefined}
+              className={active ? "text-(--ink)" : "transition-colors hover:text-(--ink)"}
+            >
+              {page.label}
+            </Link>
+          );
+        })}
+      </nav>
+      <div className="flex items-center gap-4">
+        <Clock />
+        <ThemeToggle />
+      </div>
     </footer>
   );
 };

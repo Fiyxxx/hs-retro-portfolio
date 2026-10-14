@@ -1,33 +1,27 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Analytics } from '@vercel/analytics/react';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import Projects from './components/Projects';
-import Achievements from './components/Achievements';
-import Education from './components/Education';
-import Certifications from './components/Certifications';
-import Experience from './components/Experience';
+import Intro from './components/Intro';
+import Entries from './components/Entries';
 import Footer from './components/Footer';
 import Writing from './pages/Writing';
 import Post from './pages/posts/Post';
+import { experience } from './data/experience';
+import { achievements } from './data/achievements';
+import { projects } from './data/projects';
 
 const Home = () => (
   <>
-    <Hero />
-    <Experience />
-    <Achievements />
-    <Projects />
-    <Education />
-    <Certifications />
-    <Footer />
+    <Intro />
+    <Entries title="experience" items={experience} />
+    <Entries title="achievements" items={achievements} />
+    <Entries title="projects" items={projects} />
   </>
 );
 
 const App = () => {
   return (
     <Router>
-      <Header />
-      <main className="mx-auto w-full max-w-[640px] px-5 sm:px-6">
+      <main className="page">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/writing" element={<Writing />} />
@@ -35,6 +29,7 @@ const App = () => {
           <Route path="/blog" element={<Writing />} />
           <Route path="/blog/:slug" element={<Post />} />
         </Routes>
+        <Footer />
       </main>
       <Analytics />
     </Router>
