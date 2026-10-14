@@ -24,7 +24,7 @@ const paragraphs = [
   [
     "incoming at an ai robotics startup backed by ",
     org("yc"),
-    ". i study computing at ",
+    ", and will be in sf for the whole of 2027. i study computing at ",
     org("nus"),
     ", but more than that, i love ",
     accent("entrepreneurship"),
