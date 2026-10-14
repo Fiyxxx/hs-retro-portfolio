@@ -73,19 +73,14 @@ html.theme-switching *::after {
   border: 3px solid var(--ink);
 }
 
-.donut {
+.robot {
   width: 88px;
   min-width: 44px;
   aspect-ratio: 1;
   flex: 0 1 88px;
   margin-left: auto;
   color: var(--ink);
-  cursor: grab;
-  touch-action: none;
-}
-
-.donut:active {
-  cursor: grabbing;
+  cursor: pointer;
 }
 
 @media (max-width: 420px) {
@@ -166,7 +161,7 @@ html.theme-switching *::after {
 .post-body ol,
 .post-body pre,
 .post-body blockquote {
-  margin: 0 0 14px;
+  margin: 0 0 8px;
 }
 
 .post-body h1,

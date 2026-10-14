@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { FiFileText, FiMail } from "react-icons/fi";
 import avatar from "../assets/avatar.jpg";
-import Donut from "./Donut";
+import RobotHead from "./RobotHead";
 
 const links = [
   { label: "linkedin", href: "https://linkedin.com/in/goh-han-sheng", icon: FaLinkedinIn },
@@ -33,7 +33,7 @@ const Profile = () => {
           writing →
         </Link>
       </div>
-      <Donut />
+      <RobotHead />
     </div>
   );
 };
