@@ -3,8 +3,8 @@ import { useEffect, useRef } from "react";
 // An ASCII robot head, ray-marched from a few signed-distance shapes and drawn
 // glyph by glyph onto a canvas. It turns to look at the cursor, glances with
 // its eyes, blinks, and its antenna springs about when it moves or is clicked.
-const COLS = 48;
-const ROWS = 28;
+const COLS = 60;
+const ROWS = 35;
 const RAMP = ".,-~:;=!*#";
 const VIEW = { x: 0, y: 0.16, half: 1.18 };
 const LIGHT = normalize([-0.45, 0.65, -0.62]);
@@ -14,6 +14,9 @@ const FAR = 6;
 const EYE_X = 0.3;
 const EYE_Y = 0.02;
 const FACE_Z = -0.64;
+const SOCKET_RADIUS = 0.2;
+const SOCKET_DEPTH = 0.06;
+const PUPIL_RADIUS = 0.12;
 const IDLE_MS = 3500;
 
 function normalize([x, y, z]) {
@@ -62,10 +65,12 @@ const createScene = () => {
     return { stalk, ball };
   };
 
-  const pupil = (x, y, z, side) => {
+  // Pupils are painted onto the flat socket floor rather than modelled, so
+  // they stay clean ellipses from every angle; blinking squashes them flat.
+  const onPupil = (x, y, side) => {
     const px = x - side * EYE_X - state.glanceX;
     const py = (y - EYE_Y - state.glanceY) / Math.max(state.lid, 0.08);
-    return cylinder(px, py, z - (FACE_Z + 0.04), 0.11, 0.03) * Math.max(state.lid, 0.08);
+    return Math.hypot(px, py) < PUPIL_RADIUS;
   };
 
   const distance = (x, y, z) => {
@@ -73,8 +78,7 @@ const createScene = () => {
     for (const side of [-1, 1]) {
       // Ears are short cylinders along x; sockets and mouth are carved out.
       d = Math.min(d, cylinder(y + 0.1, z, x - side * 0.78, 0.17, 0.08));
-      d = Math.max(d, -cylinder(x - side * EYE_X, y - EYE_Y, z - FACE_Z, 0.2, 0.06));
-      d = Math.min(d, pupil(x, y, z, side));
+      d = Math.max(d, -cylinder(x - side * EYE_X, y - EYE_Y, z - FACE_Z, SOCKET_RADIUS, SOCKET_DEPTH));
     }
     d = Math.max(d, -roundBox(x, y + 0.33, z - FACE_Z, 0.22, 0.035, 0.06, 0.02));
     const { stalk, ball } = antenna(x, y, z);
@@ -83,11 +87,16 @@ const createScene = () => {
 
   const material = (x, y, z) => {
     for (const side of [-1, 1]) {
-      if (pupil(x, y, z, side) < HIT * 4) return "pupil";
-      const inSocket = Math.hypot(x - side * EYE_X, y - EYE_Y) < 0.205 && z > FACE_Z + 0.005;
-      if (inSocket) return "socket";
+      const radial = Math.hypot(x - side * EYE_X, y - EYE_Y);
+      if (radial < SOCKET_RADIUS + 0.005 && z > FACE_Z + 0.005) {
+        const onFloor = z > FACE_Z + SOCKET_DEPTH - 0.01;
+        return onFloor && onPupil(x, y, side) ? "pupil" : "socket";
+      }
+      // The socket's lip: blank only if it is wall, not the flat face around it.
+      if (radial < SOCKET_RADIUS + 0.02 && z > FACE_Z - 0.003) return "rim";
     }
     if (Math.abs(x) < 0.25 && Math.abs(y + 0.33) < 0.06 && z > FACE_Z + 0.005) return "socket";
+    if (Math.abs(x) < 0.26 && Math.abs(y + 0.33) < 0.075 && z > FACE_Z - 0.003) return "rim";
     if (antenna(x, y, z).ball < HIT * 4) return "ball";
     return "shell";
   };
@@ -145,6 +154,7 @@ const renderFrame = (scene, yaw, pitch) => {
       const ny = scene.distance(px, py + e, pz) - scene.distance(px, py - e, pz);
       const nz = scene.distance(px, py, pz + e) - scene.distance(px, py, pz - e);
       const length = Math.hypot(nx, ny, nz) || 1;
+      if (kind === "rim" && Math.abs(nz / length) < 0.7) continue;
       const diffuse = Math.max(0, (nx * light[0] + ny * light[1] + nz * light[2]) / length);
       const shade = kind === "ball" ? 1 : 0.18 + diffuse * 0.82;
       output[index] = RAMP[Math.min(RAMP.length - 1, Math.floor(shade * RAMP.length))];

@@ -74,10 +74,10 @@ html.theme-switching *::after {
 }
 
 .robot {
-  width: 88px;
+  width: 116px;
   min-width: 44px;
   aspect-ratio: 1;
-  flex: 0 1 88px;
+  flex: 0 1 116px;
   margin-left: auto;
   color: var(--ink);
   cursor: pointer;

@@ -6,7 +6,7 @@ export const current = [
   {
     lead: "software engineer",
     ...at(orgs.ecovolt),
-    note: "ai agent harness, rag support assistant, iot device monitoring",
+    note: "ai agent harness and iot device monitoring for energy tech",
   },
   {
     lead: "co-founder",
@@ -17,14 +17,14 @@ export const current = [
 
 export const prev = [
   {
-    lead: "frontend dev",
-    ...at(orgs.nus),
-    note: "making nus health & wellbeing webpages better",
-  },
-  {
     lead: "cybersecurity engineer",
     ...at(orgs.csit),
     note: "hardening networks and reversing malware for the government",
+  },
+  {
+    lead: "frontend dev",
+    ...at(orgs.nus),
+    note: "making nus health & wellbeing webpages better",
   },
   {
     lead: "quant research consultant",
