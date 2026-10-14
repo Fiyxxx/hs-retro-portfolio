@@ -17,7 +17,7 @@ export const current = [
 
 export const prev = [
   {
-    lead: "cybersec intern",
+    lead: "cybersec eng intern",
     ...at(orgs.csit),
     note: "hardening networks and reversing malware",
   },
