@@ -13,9 +13,9 @@ const links = [
 
 const Profile = () => {
   return (
-    <div className="reveal-early mb-4 flex items-end gap-4">
+    <div className="reveal-early mb-4 flex items-end gap-3 sm:gap-4">
       <img src={avatar} alt="Han Sheng" className="avatar" />
-      <div className="flex items-center gap-3.5 text-(--muted)">
+      <div className="flex items-center gap-3 text-(--muted) sm:gap-3.5">
         {links.map(({ icon: Icon, ...link }) => (
           <a
             key={link.label}
