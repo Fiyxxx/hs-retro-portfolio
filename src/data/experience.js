@@ -24,7 +24,7 @@ export const prev = [
   {
     lead: "cybersecurity engineer",
     ...at(orgs.csit),
-    note: "hardening networks and reversing malware for the govt",
+    note: "hardening networks and reversing malware for the government",
   },
   {
     lead: "quant research consultant",

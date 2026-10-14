@@ -7,6 +7,7 @@ const org = (key) => {
   return { mark: { label: name, href, logos: [logo] } };
 };
 const accent = (text) => ({ accent: text });
+const link = (label, href) => ({ mark: { label, href } });
 
 // Each paragraph is a list of parts: plain strings and accents are revealed
 // word by word, marks (logo + link) are revealed as a single token.
@@ -27,9 +28,11 @@ const paragraphs = [
     org("nus"),
     ", but more than that, i love ",
     accent("entrepreneurship"),
-    ". in my free time, i love to ",
-    accent("bartend"),
-    ", so reach out for a chat or if you need a bartender ;)",
+    " and ",
+    accent("bartending"),
+    ". in my free time, i make a mean cocktail, so reach out for a ",
+    link("chat", "https://linkedin.com/in/goh-han-sheng"),
+    " or if you need a bartender ;)",
   ],
 ];
 

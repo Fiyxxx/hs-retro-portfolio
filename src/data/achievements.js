@@ -25,7 +25,7 @@ export const achievements = [
     logos: [orgs.nus.logo],
   },
   {
-    lead: "scholar",
+    lead: "student scholar",
     label: "ai engineer singapore",
     href: orgs.aie.href,
     logos: [orgs.aie.logo],
